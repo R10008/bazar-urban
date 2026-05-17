@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bazar Urban | Peças Únicas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topo">
+  <div class="marca">
+    <h1>Bazar Urban</h1>
+    <span>Peças únicas garimpadas</span>
+  </div>
+
+  <nav>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre</a>
+    <button class="cart-btn" onclick="abrirCarrinho()">
+      Carrinho <b id="contador">0</b>
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-texto">
+    <span class="mini">garimpo urbano • peça única • pronta entrega</span>
+    <h2>Looks únicos para quem não quer vestir igual.</h2>
+    <p>
+      Cada peça é selecionada uma por uma. Se gostou, garanta antes que acabe.
+    </p>
+    <a href="#produtos" class="botao">Ver peças</a>
+  </div>
+
+  <div class="hero-card">
+    <p>Drop da semana</p>
+    <h3>+40 peças disponíveis</h3>
+    <span>estoque limitado</span>
+  </div>
+</section>
+
+<section class="filtros">
+  <input id="pesquisa" type="text" placeholder="Buscar jaqueta, calça, tênis..." />
+
+  <select id="categoria">
+    <option value="todos">Todas as categorias</option>
+    <option value="camiseta">Camisetas</option>
+    <option value="calca">Calças</option>
+    <option value="jaqueta">Jaquetas</option>
+    <option value="tenis">Tênis</option>
+    <option value="acessorio">Acessórios</option>
+  </select>
+</section>
+
+<main id="produtos" class="produtos"></main>
+
+<section id="sobre" class="sobre">
+  <h2>Sobre o Bazar Urban</h2>
+  <p>
+    O Bazar Urban trabalha com peças únicas, selecionadas manualmente.
+    Cada produto possui apenas uma unidade disponível.
+  </p>
+</section>
+
+<div id="modalProduto" class="modal">
+  <div class="modal-produto">
+    <button class="fechar" onclick="fecharModalProduto()">×</button>
+
+    <img id="modalImg" src="" alt="Produto">
+
+    <div class="modal-info">
+      <span id="modalStatus" class="selo"></span>
+      <h2 id="modalNome"></h2>
+      <p id="modalDescricao"></p>
+
+      <div class="detalhes">
+        <p><b>Tamanho:</b> <span id="modalTamanho"></span></p>
+        <p><b>Estado:</b> <span id="modalEstado"></span></p>
+        <p><b>Medidas:</b> <span id="modalMedidas"></span></p>
+      </div>
+
+      <h3 id="modalPreco"></h3>
+
+      <button id="btnAdicionarModal" class="botao cheio">
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+</div>
+
+<aside id="carrinho" class="carrinho">
+  <div class="carrinho-box">
+    <button class="fechar" onclick="fecharCarrinho()">×</button>
+
+    <h2>Seu carrinho</h2>
+    <div id="itensCarrinho"></div>
+
+    <div class="resumo">
+      <p>Subtotal <strong id="subtotal">R$ 0,00</strong></p>
+      <p>Frete <strong id="freteCarrinho">Calcule no checkout</strong></p>
+      <h3>Total <span id="totalCarrinho">R$ 0,00</span></h3>
+    </div>
+
+    <button class="botao cheio" onclick="abrirCheckout()">
+      Continuar para checkout
+    </button>
+  </div>
+</aside>
+
+<div id="checkout" class="modal">
+  <div class="checkout">
+    <button class="fechar" onclick="fecharCheckout()">×</button>
+
+    <h2>Checkout</h2>
+
+    <div class="etapas">
+      <span id="etapa1" class="ativa">1. Dados</span>
+      <span id="etapa2">2. Entrega</span>
+      <span id="etapa3">3. Pagamento</span>
+    </div>
+
+    <div id="checkoutDados" class="checkout-area">
+      <h3>Dados do cliente</h3>
+      <input id="nomeCliente" placeholder="Nome completo">
+      <input id="emailCliente" placeholder="E-mail">
+      <input id="telefoneCliente" placeholder="WhatsApp">
+
+      <button class="botao cheio" onclick="irEntrega()">
+        Próximo
+      </button>
+    </div>
+
+    <div id="checkoutEntrega" class="checkout-area escondido">
+      <h3>Entrega</h3>
+      <input id="cepCliente" placeholder="CEP">
+      <input id="cidadeCliente" placeholder="Cidade">
+      <input id="enderecoCliente" placeholder="Endereço completo">
+
+      <button class="botao claro" onclick="voltarDados()">Voltar</button>
+      <button class="botao cheio" onclick="calcularFreteCheckout()">Calcular frete e continuar</button>
+
+      <p id="resultadoFrete"></p>
+    </div>
+
+    <div id="checkoutPagamento" class="checkout-area escondido">
+      <h3>Pagamento</h3>
+
+      <select id="pagamento" onchange="trocarPagamento()">
+        <option value="pix">PIX</option>
+        <option value="cartao">Cartão</option>
+      </select>
+
+      <div id="areaPix" class="pagamento-box">
+        <p>Chave PIX:</p>
+        <strong id="chavePix">bazarurban@pix.com</strong>
+        <button class="botao claro" onclick="copiarPix()">Copiar chave</button>
+      </div>
+
+      <div id="areaCartao" class="pagamento-box escondido">
+        <input id="numeroCartao" placeholder="Número do cartão">
+        <input id="nomeCartao" placeholder="Nome no cartão">
+        <div class="linha">
+          <input id="validadeCartao" placeholder="Validade">
+          <input id="cvvCartao" placeholder="CVV">
+        </div>
+      </div>
+
+      <div class="resumo final">
+        <p>Subtotal <strong id="checkoutSubtotal">R$ 0,00</strong></p>
+        <p>Frete <strong id="checkoutFrete">R$ 0,00</strong></p>
+        <h3>Total <span id="checkoutTotal">R$ 0,00</span></h3>
+      </div>
+
+      <button class="botao claro" onclick="voltarEntrega()">Voltar</button>
+      <button class="botao cheio" onclick="confirmarPedido()">Confirmar pedido</button>
+    </div>
+  </div>
+</div>
+
+<a class="suporte" href="https://wa.me/5599999999999" target="_blank">
+  Suporte WhatsApp
+</a>
+
+<footer>
+  <p>Bazar Urban © 2026 — Peças únicas</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
