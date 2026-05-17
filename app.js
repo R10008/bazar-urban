@@ -229,25 +229,18 @@ function salvarCarrinho(){
 
 function adicionarCarrinho(id){
 
-  const existe =
-  carrinho.find(item => item.id === id);
+  const produto =
+  produtos.find(p => p.id === id);
 
-  if(existe){
+  if(produto.checkout){
 
-    alert("Essa peça já está no carrinho.");
+    window.open(produto.checkout, "_blank");
 
     return;
 
   }
 
-  const produto =
-  produtos.find(p => p.id === id);
-
-  carrinho.push(produto);
-
-  salvarCarrinho();
-
-  atualizarCarrinho();
+  alert("Checkout não encontrado.");
 
 }
 
