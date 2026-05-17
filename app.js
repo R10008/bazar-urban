@@ -1,55 +1,78 @@
-const produtos = [];
-
-const categorias = [
-  "camiseta",
-  "calca",
-  "jaqueta",
-  "tenis",
-  "acessorio"
+const produtos = [
+  {
+    id:1,
+    nome:"Jaqueta Vintage Black",
+    categoria:"jaqueta",
+    preco:189.90,
+    status:"Peça única",
+    tamanho:"G",
+    estado:"Excelente estado",
+    medidas:"70x58cm",
+    descricao:"Jaqueta vintage oversized selecionada manualmente.",
+    imagem:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200"
+  },
+  {
+    id:2,
+    nome:"Camiseta Oversized",
+    categoria:"camiseta",
+    preco:79.90,
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Nova",
+    medidas:"74x56cm",
+    descricao:"Camiseta premium streetwear minimalista.",
+    imagem:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1200"
+  },
+  {
+    id:3,
+    nome:"Calça Cargo Urban",
+    categoria:"calca",
+    preco:149.90,
+    status:"Peça única",
+    tamanho:"42",
+    estado:"Excelente estado",
+    medidas:"105x44cm",
+    descricao:"Calça cargo urbana com modelagem reta.",
+    imagem:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200"
+  },
+  {
+    id:4,
+    nome:"Tênis Street White",
+    categoria:"tenis",
+    preco:229.90,
+    status:"Peça única",
+    tamanho:"41",
+    estado:"Novo",
+    medidas:"41 BR",
+    descricao:"Tênis casual premium para composição street.",
+    imagem:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
+  }
 ];
 
-const nomes = [
-  "Jaqueta Vintage",
-  "Calça Cargo",
-  "Tênis Street",
-  "Moletom Urban",
-  "Camiseta Oversized",
-  "Boné Premium",
-  "Jaqueta Jeans",
-  "Tênis White",
-  "Camiseta Basic",
-  "Calça Wide Leg"
-];
-
-const tamanhos = ["P","M","G","GG"];
-const estados = ["Novo","Seminovo","Excelente estado"];
-
-for(let i = 1; i <= 40; i++){
+for(let i = 5; i <= 40; i++){
 
   produtos.push({
 
     id:i,
 
-    nome:`${nomes[Math.floor(Math.random()*nomes.length)]} ${i}`,
+    nome:`Peça Exclusiva ${i}`,
 
-    categoria:
-    categorias[Math.floor(Math.random()*categorias.length)],
+    categoria:["camiseta","calca","jaqueta","tenis","acessorio"]
+    [Math.floor(Math.random()*5)],
 
-    preco:
-    (Math.random()*250+70).toFixed(2),
+    preco:(Math.random()*250+70),
 
     status:"Peça única",
 
-    tamanho:
-    tamanhos[Math.floor(Math.random()*tamanhos.length)],
+    tamanho:["P","M","G","GG"][Math.floor(Math.random()*4)],
 
-    estado:
-    estados[Math.floor(Math.random()*estados.length)],
+    estado:["Novo","Excelente estado","Seminovo"]
+    [Math.floor(Math.random()*3)],
 
     medidas:"70x55cm",
 
     descricao:
-    "Peça selecionada manualmente para o acervo exclusivo da Bazar Urban.",
+    "Produto selecionado manualmente para o acervo Bazar Urban.",
 
     imagem:
     `https://picsum.photos/600/800?random=${i}`
@@ -58,8 +81,10 @@ for(let i = 1; i <= 40; i++){
 
 }
 
-const areaProdutos =
-document.getElementById("produtos");
+/* ELEMENTOS */
+
+const listaProdutos =
+document.getElementById("listaProdutos");
 
 const pesquisa =
 document.getElementById("pesquisa");
@@ -67,19 +92,23 @@ document.getElementById("pesquisa");
 const categoria =
 document.getElementById("categoria");
 
-let carrinho = [];
+/* STORAGE */
+
+let carrinho =
+JSON.parse(localStorage.getItem("bazarUrbanCarrinho"))
+|| [];
 
 let frete = 0;
 
 /* RENDER */
 
-function renderizar(lista){
+function renderizarProdutos(lista){
 
-  areaProdutos.innerHTML = "";
+  listaProdutos.innerHTML = "";
 
   lista.forEach(produto => {
 
-    areaProdutos.innerHTML += `
+    listaProdutos.innerHTML += `
 
       <div class="card">
 
@@ -87,7 +116,7 @@ function renderizar(lista){
 
         <div class="card-info">
 
-          <span class="selo">
+          <span class="badge">
             ${produto.status}
           </span>
 
@@ -101,16 +130,16 @@ function renderizar(lista){
               .replace(".",",")}
           </div>
 
-          <div class="card-buttons">
+          <div class="card-botoes">
 
-            <button class="btn-light"
+            <button class="btn secundario"
             onclick="abrirProduto(${produto.id})">
               Ver peça
             </button>
 
-            <button class="btn-dark"
+            <button class="btn principal"
             onclick="adicionarCarrinho(${produto.id})">
-              Adicionar
+              Comprar
             </button>
 
           </div>
@@ -125,9 +154,9 @@ function renderizar(lista){
 
 }
 
-renderizar(produtos);
+renderizarProdutos(produtos);
 
-/* MODAL */
+/* PRODUTO */
 
 function abrirProduto(id){
 
@@ -137,34 +166,34 @@ function abrirProduto(id){
   document.getElementById("modalProduto")
   .style.display = "flex";
 
-  document.getElementById("modalImg")
+  document.getElementById("produtoImagem")
   .src = produto.imagem;
 
-  document.getElementById("modalNome")
+  document.getElementById("produtoNome")
   .innerText = produto.nome;
 
-  document.getElementById("modalDescricao")
+  document.getElementById("produtoDescricao")
   .innerText = produto.descricao;
 
-  document.getElementById("modalPreco")
+  document.getElementById("produtoPreco")
   .innerText =
   `R$ ${Number(produto.preco)
     .toFixed(2)
     .replace(".",",")}`;
 
-  document.getElementById("modalStatus")
+  document.getElementById("produtoStatus")
   .innerText = produto.status;
 
-  document.getElementById("modalTamanho")
+  document.getElementById("produtoTamanho")
   .innerText = produto.tamanho;
 
-  document.getElementById("modalEstado")
+  document.getElementById("produtoEstado")
   .innerText = produto.estado;
 
-  document.getElementById("modalMedidas")
+  document.getElementById("produtoMedidas")
   .innerText = produto.medidas;
 
-  document.getElementById("btnAdicionarModal")
+  document.getElementById("btnAdicionarProduto")
   .onclick = () => {
 
     adicionarCarrinho(produto.id);
@@ -173,7 +202,7 @@ function abrirProduto(id){
 
 }
 
-function fecharModalProduto(){
+function fecharProduto(){
 
   document.getElementById("modalProduto")
   .style.display = "none";
@@ -182,12 +211,21 @@ function fecharModalProduto(){
 
 /* CARRINHO */
 
+function salvarCarrinho(){
+
+  localStorage.setItem(
+    "bazarUrbanCarrinho",
+    JSON.stringify(carrinho)
+  );
+
+}
+
 function adicionarCarrinho(id){
 
-  const jaExiste =
+  const existe =
   carrinho.find(item => item.id === id);
 
-  if(jaExiste){
+  if(existe){
 
     alert("Essa peça já está no carrinho.");
 
@@ -200,6 +238,8 @@ function adicionarCarrinho(id){
 
   carrinho.push(produto);
 
+  salvarCarrinho();
+
   atualizarCarrinho();
 
 }
@@ -208,6 +248,8 @@ function removerCarrinho(id){
 
   carrinho =
   carrinho.filter(item => item.id !== id);
+
+  salvarCarrinho();
 
   atualizarCarrinho();
 
@@ -278,9 +320,13 @@ function atualizarCarrinho(){
 
   document.getElementById("checkoutTotal")
   .innerText =
-  `R$ ${total.toFixed(2).replace(".",",")}`;
+  `R$ ${(subtotal + frete)
+    .toFixed(2)
+    .replace(".",",")}`;
 
 }
+
+atualizarCarrinho();
 
 /* DRAWER */
 
@@ -322,7 +368,7 @@ function fecharCheckout(){
 
 }
 
-function irEntrega(){
+function proximaEntrega(){
 
   const nome =
   document.getElementById("nomeCliente").value;
@@ -332,43 +378,43 @@ function irEntrega(){
 
   if(!nome || !email){
 
-    alert("Preencha seus dados.");
+    alert("Preencha os dados.");
 
     return;
 
   }
 
-  document.getElementById("checkoutDados")
+  document.getElementById("areaDados")
   .classList.add("escondido");
 
-  document.getElementById("checkoutEntrega")
+  document.getElementById("areaEntrega")
   .classList.remove("escondido");
 
-  document.getElementById("etapa1")
-  .classList.remove("ativa");
+  document.getElementById("passo1")
+  .classList.remove("ativo");
 
-  document.getElementById("etapa2")
-  .classList.add("ativa");
+  document.getElementById("passo2")
+  .classList.add("ativo");
 
 }
 
 function voltarDados(){
 
-  document.getElementById("checkoutEntrega")
+  document.getElementById("areaEntrega")
   .classList.add("escondido");
 
-  document.getElementById("checkoutDados")
+  document.getElementById("areaDados")
   .classList.remove("escondido");
 
-  document.getElementById("etapa2")
-  .classList.remove("ativa");
+  document.getElementById("passo2")
+  .classList.remove("ativo");
 
-  document.getElementById("etapa1")
-  .classList.add("ativa");
+  document.getElementById("passo1")
+  .classList.add("ativo");
 
 }
 
-function calcularFreteCheckout(){
+function calcularFrete(){
 
   const cep =
   document.getElementById("cepCliente").value;
@@ -383,65 +429,65 @@ function calcularFreteCheckout(){
 
   frete = 27.90;
 
+  atualizarCarrinho();
+
   document.getElementById("resultadoFrete")
   .innerText =
   `Frete calculado: R$ ${frete
     .toFixed(2)
     .replace(".",",")}`;
 
-  atualizarCarrinho();
-
-  document.getElementById("checkoutEntrega")
+  document.getElementById("areaEntrega")
   .classList.add("escondido");
 
-  document.getElementById("checkoutPagamento")
+  document.getElementById("areaPagamento")
   .classList.remove("escondido");
 
-  document.getElementById("etapa2")
-  .classList.remove("ativa");
+  document.getElementById("passo2")
+  .classList.remove("ativo");
 
-  document.getElementById("etapa3")
-  .classList.add("ativa");
+  document.getElementById("passo3")
+  .classList.add("ativo");
 
 }
 
 function voltarEntrega(){
 
-  document.getElementById("checkoutPagamento")
+  document.getElementById("areaPagamento")
   .classList.add("escondido");
 
-  document.getElementById("checkoutEntrega")
+  document.getElementById("areaEntrega")
   .classList.remove("escondido");
 
-  document.getElementById("etapa3")
-  .classList.remove("ativa");
+  document.getElementById("passo3")
+  .classList.remove("ativo");
 
-  document.getElementById("etapa2")
-  .classList.add("ativa");
+  document.getElementById("passo2")
+  .classList.add("ativo");
 
 }
 
 /* PAGAMENTO */
 
-function trocarPagamento(){
+function mudarPagamento(){
 
-  const tipo =
-  document.getElementById("pagamento").value;
+  const forma =
+  document.getElementById("formaPagamento").value;
 
-  if(tipo === "pix"){
+  if(forma === "pix"){
 
-    document.getElementById("areaPix")
+    document.getElementById("boxPix")
     .classList.remove("escondido");
 
-    document.getElementById("areaCartao")
+    document.getElementById("boxCartao")
     .classList.add("escondido");
 
   }else{
 
-    document.getElementById("areaCartao")
+    document.getElementById("boxCartao")
     .classList.remove("escondido");
 
-    document.getElementById("areaPix")
+    document.getElementById("boxPix")
     .classList.add("escondido");
 
   }
@@ -454,18 +500,18 @@ function copiarPix(){
     "bazarurban@pix.com"
   );
 
-  alert("Chave PIX copiada.");
+  alert("Pix copiado.");
 
 }
 
-/* FINALIZAR */
+/* PEDIDO */
 
 function confirmarPedido(){
 
-  const pagamento =
-  document.getElementById("pagamento").value;
+  const forma =
+  document.getElementById("formaPagamento").value;
 
-  if(pagamento === "cartao"){
+  if(forma === "cartao"){
 
     const numero =
     document.getElementById("numeroCartao").value;
@@ -486,19 +532,31 @@ function confirmarPedido(){
   const pedido =
   Math.floor(Math.random()*100000);
 
-  alert(
-    `Pedido #${pedido} confirmado com sucesso.`
-  );
+  document.getElementById("numeroPedido")
+  .innerText =
+  `Pedido #${pedido} confirmado com sucesso.`;
+
+  document.getElementById("pedidoFinalizado")
+  .style.display = "flex";
 
   carrinho = [];
 
   frete = 0;
+
+  salvarCarrinho();
 
   atualizarCarrinho();
 
   fecharCheckout();
 
   fecharCarrinho();
+
+}
+
+function fecharPedidoFinalizado(){
+
+  document.getElementById("pedidoFinalizado")
+  .style.display = "none";
 
 }
 
@@ -519,8 +577,7 @@ function filtrar(){
   const filtrados = produtos.filter(produto => {
 
     const nome =
-    produto.nome
-    .toLowerCase()
+    produto.nome.toLowerCase()
     .includes(texto);
 
     const categoriaOk =
@@ -531,6 +588,6 @@ function filtrar(){
 
   });
 
-  renderizar(filtrados);
+  renderizarProdutos(filtrados);
 
 }
