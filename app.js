@@ -4,6 +4,7 @@ const produtos = [
     nome:"Jaqueta Vintage Black",
     categoria:"jaqueta",
     preco:189.90,
+    checkout:"https://pay.risepay.com.br/Pay/3d2f366ed6e84090aeb4973b2c463b08",
     status:"Peça única",
     tamanho:"G",
     estado:"Excelente estado",
@@ -11,11 +12,13 @@ const produtos = [
     descricao:"Jaqueta vintage oversized selecionada manualmente.",
     imagem:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200"
   },
+
   {
     id:2,
     nome:"Camiseta Oversized",
     categoria:"camiseta",
     preco:79.90,
+    checkout:"https://pay.risepay.com.br/Pay/ddb6e3bf7cb440f8b73cf5176b82c87f",
     status:"Peça única",
     tamanho:"M",
     estado:"Nova",
@@ -23,11 +26,13 @@ const produtos = [
     descricao:"Camiseta premium streetwear minimalista.",
     imagem:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1200"
   },
+
   {
     id:3,
     nome:"Calça Cargo Urban",
     categoria:"calca",
     preco:149.90,
+    checkout:"https://pay.risepay.com.br/Pay/20d0ac2a83db41b88cb7196932875d6d",
     status:"Peça única",
     tamanho:"42",
     estado:"Excelente estado",
@@ -35,11 +40,13 @@ const produtos = [
     descricao:"Calça cargo urbana com modelagem reta.",
     imagem:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200"
   },
+
   {
     id:4,
     nome:"Tênis Street White",
     categoria:"tenis",
     preco:229.90,
+    checkout:"https://pay.risepay.com.br/Pay/44df9a55b6054f318fd1cfa61bfa75b1",
     status:"Peça única",
     tamanho:"41",
     estado:"Novo",
