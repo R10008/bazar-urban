@@ -3,7 +3,7 @@ const produtos = [
     id:1,
     nome:"Jaqueta Vintage Black",
     categoria:"jaqueta",
-    preco:189.90,
+    preco: 49.99,
     checkout:"https://pay.risepay.com.br/Pay/3d2f366ed6e84090aeb4973b2c463b08",
     status:"Peça única",
     tamanho:"G",
