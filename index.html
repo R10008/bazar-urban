@@ -202,27 +202,12 @@
     <div id="areaPagamento" class="area-checkout escondido">
       <h3>Pagamento</h3>
 
-      <select id="formaPagamento" onchange="mudarPagamento()">
-        <option value="pix">Pix</option>
-        <option value="cartao">Cartão</option>
-      </select>
-
       <div id="boxPix" class="box-pagamento">
-        <p>Chave Pix para teste:</p>
-        <strong>bazarurban@pix.com</strong>
-        <button class="btn secundario" onclick="copiarPix()">Copiar Pix</button>
-      </div>
-
-      <div id="boxCartao" class="box-pagamento escondido">
-        <input id="numeroCartao" placeholder="Número do cartão">
-        <input id="nomeCartao" placeholder="Nome no cartão">
-
-        <div class="linha">
-          <input id="validadeCartao" placeholder="Validade">
-          <input id="cvvCartao" placeholder="CVV">
-        </div>
-      </div>
-
+        <p>
+     Pagamento seguro via RisePay.
+    Você será redirecionado para finalizar.
+   </p> 
+</div>
       <div class="resumo final">
         <p>Subtotal <strong id="checkoutSubtotal">R$ 0,00</strong></p>
         <p>Frete <strong id="checkoutFrete">R$ 0,00</strong></p>
