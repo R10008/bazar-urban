@@ -725,4 +725,81 @@ footer p{
 
 .card:hover img{
   transform:scale(1.05);
+} 
+/* RESPONSIVIDADE */
+@media (max-width: 1100px){
+
+  .hero-premium{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-imagem img{
+    height: 500px;
+  }
+
+  .grid-produtos{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width: 768px){
+
+  .topo{
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-premium{
+    padding: 40px 20px;
+  }
+
+  .hero-premium h1{
+    font-size: 52px;
+  }
+
+  .hero-imagem img{
+    height: 400px;
+  }
+
+  .grid-produtos{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 520px){
+
+  .hero-premium h1{
+    font-size: 40px;
+  }
+
+  .hero-premium p{
+    font-size: 16px;
+  }
+
+  .grid-produtos{
+    grid-template-columns: 1fr;
+  }
+
+  .card img{
+    height: 320px;
+  }
+
+  .acoes-card{
+    flex-direction: column;
+  }
+
+  .acoes-card button{
+    width: 100%;
+  }
+
 }
