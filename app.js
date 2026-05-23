@@ -1,58 +1,6 @@
 const produtos = [
   {
     id:1,
-    nome:"Jaqueta Vintage Black",
-    categoria:"jaqueta",
-    preco:49.90,
-    checkout:"https://pay.risepay.com.br/Pay/3d2f366ed6e84090aeb4973b2c463b08",
-    status:"Peça única",
-    tamanho:"G",
-    estado:"Excelente estado",
-    medidas:"70x58cm",
-    descricao:"Jaqueta vintage oversized selecionada manualmente.",
-    imagem:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200"
-  },
-  {
-    id:2,
-    nome:"Camiseta Oversized",
-    categoria:"camiseta",
-    preco:79.90,
-    checkout:"https://pay.risepay.com.br/Pay/ddb6e3bf7cb440f8b73cf5176b82c87f",
-    status:"Peça única",
-    tamanho:"M",
-    estado:"Nova",
-    medidas:"74x56cm",
-    descricao:"Camiseta premium streetwear minimalista.",
-    imagem:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1200"
-  },
-  {
-    id:3,
-    nome:"Calça Cargo Urban",
-    categoria:"calca",
-    preco:149.90,
-    checkout:"https://pay.risepay.com.br/Pay/20d0ac2a83db41b88cb7196932875d6d",
-    status:"Peça única",
-    tamanho:"42",
-    estado:"Excelente estado",
-    medidas:"105x44cm",
-    descricao:"Calça cargo urbana com modelagem reta.",
-    imagem:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200"
-  },
-  {
-    id:4,
-    nome:"Tênis Street White",
-    categoria:"tenis",
-    preco:229.90,
-    checkout:"https://pay.risepay.com.br/Pay/44df9a55b6054f318fd1cfa61bfa75b1",
-    status:"Peça única",
-    tamanho:"41",
-    estado:"Novo",
-    medidas:"41 BR",
-    descricao:"Tênis casual premium para composição street.",
-    imagem:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
-  },
-  {
-    id:1,
     nome:"Moletom Essentials",
     categoria:"jaqueta",
     preco:74.99,
@@ -64,7 +12,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://m.media-amazon.com/images/I/51fZ8HdmIIL._AC_SX569_.jpg"
   },
-
   {
     id:2,
     nome:"Jaqueta Denim Vintage",
@@ -78,7 +25,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://conceitoprisma.com.br/wp-content/uploads/2022/07/jaqueta-jeans-vintage-conceito-prisma-azul-2.jpg"
   },
-
   {
     id:3,
     nome:"Camiseta Boxy Cream",
@@ -92,7 +38,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-m1e8lyn9mu002f"
   },
-
   {
     id:4,
     nome:"Calça Baggy Jeans",
@@ -106,7 +51,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://www.tradeinn.com/f/14174/141749087/def-jeans-baggy.webp"
   },
-
   {
     id:5,
     nome:"Tênis Urban Black",
@@ -120,7 +64,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://static.netshoes.com.br/produtos/tenis-mormai-urban-free/06/7FG-0207-006/7FG-0207-006_zoom1.jpg?ts=1769000049&ims=1088x"
   },
-
   {
     id:6,
     nome:"Hoodie Oversized",
@@ -134,7 +77,6 @@ const produtos = [
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://cdna.lystit.com/photos/boohooman/a3624f80/boohooman-designer-black-Bonded-Scuba-Oversized-Hoodie.jpeg"
   },
-
   {
     id:7,
     nome:"Camiseta Street Off White",
@@ -147,15 +89,14 @@ const produtos = [
     medidas:"74x56cm",
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzj1jzgduexxa2"
-  },
+  }
 ];
-
 
 const listaProdutos = document.getElementById("listaProdutos");
 const pesquisa = document.getElementById("pesquisa");
 const categoria = document.getElementById("categoria");
 
-let carrinho = JSON.parse(localStorage.getItem("bazarUrbanCarrinho")) || [];
+let carrinho = [];
 let frete = 0;
 let produtoSelecionado = null;
 
@@ -215,10 +156,6 @@ function fecharProduto(){
   document.getElementById("modalProduto").style.display = "none";
 }
 
-function salvarCarrinho(){
-  localStorage.setItem("bazarUrbanCarrinho", JSON.stringify(carrinho));
-}
-
 function comprarProduto(id){
   const produto = produtos.find(p => p.id === id);
 
@@ -228,24 +165,12 @@ function comprarProduto(id){
   }
 
   produtoSelecionado = produto;
-
   carrinho = [produto];
   frete = 0;
-  salvarCarrinho();
-  atualizarCarrinho();
 
+  atualizarCarrinho();
   fecharProduto();
   abrirCheckout();
-}
-
-function adicionarCarrinho(id){
-  comprarProduto(id);
-}
-
-function removerCarrinho(id){
-  carrinho = carrinho.filter(item => item.id !== id);
-  salvarCarrinho();
-  atualizarCarrinho();
 }
 
 function atualizarCarrinho(){
@@ -265,10 +190,6 @@ function atualizarCarrinho(){
         <div>
           <h4>${item.nome}</h4>
           <p>R$ ${Number(item.preco).toFixed(2).replace(".",",")}</p>
-
-          <button class="remover" onclick="removerCarrinho(${item.id})">
-            remover
-          </button>
         </div>
       </div>
     `;
@@ -377,23 +298,6 @@ function voltarEntrega(){
 
   document.getElementById("passo3").classList.remove("ativo");
   document.getElementById("passo2").classList.add("ativo");
-}
-
-function mudarPagamento(){
-  const forma = document.getElementById("formaPagamento").value;
-
-  if(forma === "pix"){
-    document.getElementById("boxPix").classList.remove("escondido");
-    document.getElementById("boxCartao").classList.add("escondido");
-  }else{
-    document.getElementById("boxCartao").classList.remove("escondido");
-    document.getElementById("boxPix").classList.add("escondido");
-  }
-}
-
-function copiarPix(){
-  navigator.clipboard.writeText("bazarurban@pix.com");
-  alert("Pix copiado.");
 }
 
 function confirmarPedido(){
