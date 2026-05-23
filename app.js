@@ -50,62 +50,106 @@ const produtos = [
     medidas:"41 BR",
     descricao:"Tênis casual premium para composição street.",
     imagem:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
-  }
-];
-
-const nomesProdutos = [
-  "Moletom Essentials",
-  "Jaqueta Denim Vintage",
-  "Camiseta Boxy Cream",
-  "Calça Baggy Jeans",
-  "Tênis Urban Black",
-  "Hoodie Oversized",
-  "Camiseta Street Off White",
-  "Cargo Utility",
-  "Jaqueta Varsity",
-  "Moletom Heavy",
-  "Tênis Classic Retro",
-  "Camiseta Minimal",
-  "Calça Wide Leg",
-  "Jaqueta Workwear",
-  "Boné Vintage",
-  "Camiseta Underground",
-  "Cargo Militar",
-  "Tênis Shadow",
-  "Moletom Basic Nude",
-  "Jaqueta Puffer",
-  "Camiseta Premium",
-  "Wide Pants",
-  "Tênis Skate Low",
-  "Hoodie Midnight",
-  "Camiseta Washed",
-  "Jaqueta Canvas",
-  "Cargo Black",
-  "Tênis Runner",
-  "Moletom Urban Fit",
-  "Camiseta Vintage Tee",
-  "Calça Carpenter",
-  "Jaqueta Street",
-  "Boné Black Label",
-  "Camiseta Essential",
-  "Calça Utility",
-  "Tênis White Clean"
-];
-
-for(let i = 5; i <= 40; i++){
-  produtos.push({
-    id:i,
-    nome:nomesProdutos[i - 5],
-    categoria:["camiseta","calca","jaqueta","tenis","acessorio"][Math.floor(Math.random()*5)],
-    preco:(Math.random()*250+70),
+  },
+  {
+    id:1,
+    nome:"Moletom Essentials",
+    categoria:"jaqueta",
+    preco:74.99,
+    checkout:"https://pay.risepay.com.br/Pay/0a3078e4af6a4f3ebaa1c73e784dfd74",
     status:"Peça única",
-    tamanho:["P","M","G","GG"][Math.floor(Math.random()*4)],
-    estado:["Novo","Excelente estado","Seminovo"][Math.floor(Math.random()*3)],
+    tamanho:"M",
+    estado:"Novo",
     medidas:"70x55cm",
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:`https://picsum.photos/600/800?random=${i}`
-  });
-}
+    imagem:"https://m.media-amazon.com/images/I/51fZ8HdmIIL._AC_SX569_.jpg"
+  },
+
+  {
+    id:2,
+    nome:"Jaqueta Denim Vintage",
+    categoria:"jaqueta",
+    preco:87.02,
+    checkout:"https://pay.risepay.com.br/Pay/a9d6d2bdadcc4132ab006755cf56180e",
+    status:"Peça única",
+    tamanho:"G",
+    estado:"Excelente estado",
+    medidas:"72x58cm",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://conceitoprisma.com.br/wp-content/uploads/2022/07/jaqueta-jeans-vintage-conceito-prisma-azul-2.jpg"
+  },
+
+  {
+    id:3,
+    nome:"Camiseta Boxy Cream",
+    categoria:"camiseta",
+    preco:89.90,
+    checkout:"https://pay.risepay.com.br/Pay/e9375a054d8845ebbcbe215776b6f176",
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"74x56cm",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-m1e8lyn9mu002f"
+  },
+
+  {
+    id:4,
+    nome:"Calça Baggy Jeans",
+    categoria:"calca",
+    preco:79.90,
+    checkout:"https://pay.risepay.com.br/Pay/373bd0e1b03947d9be5f23bd8e858b84",
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Excelente estado",
+    medidas:"105x44cm",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://www.tradeinn.com/f/14174/141749087/def-jeans-baggy.webp"
+  },
+
+  {
+    id:5,
+    nome:"Tênis Urban Black",
+    categoria:"tenis",
+    preco:119.90,
+    checkout:"https://pay.risepay.com.br/Pay/7e7993ee294b477a86495945c8d34cee",
+    status:"Peça única",
+    tamanho:"39/40",
+    estado:"Novo",
+    medidas:"39/40 BR",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://static.netshoes.com.br/produtos/tenis-mormai-urban-free/06/7FG-0207-006/7FG-0207-006_zoom1.jpg?ts=1769000049&ims=1088x"
+  },
+
+  {
+    id:6,
+    nome:"Hoodie Oversized",
+    categoria:"jaqueta",
+    preco:89.90,
+    checkout:"https://pay.risepay.com.br/Pay/21c3ad7cde9946dcbb053635ea7af56e",
+    status:"Peça única",
+    tamanho:"G",
+    estado:"Novo",
+    medidas:"72x58cm",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://cdna.lystit.com/photos/boohooman/a3624f80/boohooman-designer-black-Bonded-Scuba-Oversized-Hoodie.jpeg"
+  },
+
+  {
+    id:7,
+    nome:"Camiseta Street Off White",
+    categoria:"camiseta",
+    preco:99.90,
+    checkout:"https://pay.risepay.com.br/Pay/21968022bb574a1eb7e030f80150009d",
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"74x56cm",
+    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
+    imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzj1jzgduexxa2"
+  },
+];
+
 
 const listaProdutos = document.getElementById("listaProdutos");
 const pesquisa = document.getElementById("pesquisa");
