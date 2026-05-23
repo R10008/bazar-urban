@@ -34,16 +34,30 @@ body{
 .logo{
   text-decoration:none;
   color:#111;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.mini-logo{
+  font-size:11px;
+  letter-spacing:5px;
+  font-weight:700;
+  color:#777;
 }
 
 .logo strong{
-  display:block;
-  font-size:30px;
+  font-size:34px;
+  letter-spacing:2px;
+  font-weight:800;
+  color:#111;
 }
 
-.logo span{
+.logo small{
   color:#777;
-  font-size:14px;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
 }
 
 .menu{
@@ -70,12 +84,42 @@ body{
 
 /* HERO */
 
-.hero{
-  padding:90px 60px;
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:40px;
+.hero-premium{
+  min-height:520px;
+  padding:100px 60px 80px;
+  display:flex;
   align-items:center;
+
+  background:
+  radial-gradient(circle at 85% 40%, rgba(0,0,0,0.12), transparent 28%),
+  #f5f2eb;
+
+  border-bottom:1px solid #e8e8e8;
+}
+
+.hero-premium .hero-texto{
+  max-width:760px;
+}
+
+.hero-premium h1{
+  margin-top:25px;
+  font-size:70px;
+  line-height:1;
+  letter-spacing:-3px;
+}
+
+.hero-premium p{
+  margin-top:25px;
+  max-width:560px;
+  color:#555;
+  line-height:1.8;
+  font-size:19px;
+}
+
+.hero-acoes{
+  display:flex;
+  gap:15px;
+  margin-top:35px;
 }
 
 .badge{
@@ -87,48 +131,6 @@ body{
   font-size:12px;
   text-transform:uppercase;
   letter-spacing:1px;
-}
-
-.hero h1{
-  margin-top:25px;
-  font-size:70px;
-  line-height:1.02;
-  max-width:760px;
-}
-
-.hero p{
-  margin-top:22px;
-  max-width:550px;
-  color:#555;
-  line-height:1.8;
-  font-size:18px;
-}
-
-.hero-acoes{
-  display:flex;
-  gap:15px;
-  margin-top:35px;
-}
-
-.hero-destaque{
-  background:#111;
-  color:white;
-  padding:45px;
-  border-radius:28px;
-}
-
-.hero-destaque span{
-  color:#bfbfbf;
-}
-
-.hero-destaque h2{
-  margin-top:15px;
-  font-size:52px;
-}
-
-.hero-destaque p{
-  margin-top:10px;
-  color:#ccc;
 }
 
 /* BOTÕES */
