@@ -13,7 +13,7 @@ const produtos = [
     avaliacao:"★★★★★",
     visualizando:18,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:"https://m.media-amazon.com/images/I/51fZ8HdmIIL._AC_SX569_.jpg"
+    imagem:"https://img.ltwebstatic.com/v4/j/spmp/2026/05/05/21/1777926168f3cd63ed4fbf07e8024e74201fd4cfd5.webp"
   },
   {
     id:2,
@@ -77,7 +77,7 @@ const produtos = [
     avaliacao:"★★★★★",
     visualizando:21,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:"https://a-static.mlcdn.com.br/800x560/tenis-adidas-urban-court-masculino/netshoes/fb9-3764-793-41/b8cc16dcaaf4cbb8694a40e7566112b5.jpeg"
+    imagem:"https://tse4.mm.bing.net/th/id/OIP.pS8SlwykeNEKfAo_uCYIKgHaHa?cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     id:6,
@@ -174,7 +174,7 @@ const produtos = [
     avaliacao:"★★★★★",
     visualizando:22,
     descricao:"Camisa com estampa urbana para quem busca destaque no visual.",
-    imagem:"https://thf.bing.com/th/id/OIP.eYC5N_EqinSCQhdaw_Eq0AHaJ2?w=203&h=271&c=7&r=0&o=7&cb=thfc1falcon&pid=1.7&rm=3"
+    imagem:"https://img.ltwebstatic.com/images3_pi/2023/03/23/167956935273f743488acd75a72409555235a1994d.webp"
   },
   {
     id:12,
@@ -276,6 +276,7 @@ const produtos = [
 ];
 
 const listaProdutos = document.getElementById("listaProdutos");
+const listaMaisVendidos = document.getElementById("listaMaisVendidos");
 const pesquisa = document.getElementById("pesquisa");
 const categoria = document.getElementById("categoria");
 
@@ -319,8 +320,8 @@ function renderizarProdutos(lista){
 
           <p>${produto.descricao}</p>
 
-          <p class="estoque">🔥 Restam apenas ${produto.estoque} unidades</p>
-          <p class="visualizando">👀 ${produto.visualizando} vendo agora</p>
+          <p class="estoque">⚠️ Apenas ${produto.estoque} peças restantes</p>
+          <p class="visualizando">👀 ${produto.visualizando} pessoas vendo agora</p>
 
           <div class="preco">
             ${dinheiro(produto.preco)}
@@ -328,7 +329,7 @@ function renderizarProdutos(lista){
 
           <div class="card-botoes">
             <button class="btn secundario" onclick="abrirProduto(${produto.id})">
-              Ver peça
+              Ver detalhes
             </button>
 
             <button class="btn carrinho-btn" onclick="adicionarCarrinho(${produto.id})">
@@ -336,7 +337,7 @@ function renderizarProdutos(lista){
             </button>
 
             <button class="btn principal" onclick="comprarProduto(${produto.id})">
-              Comprar
+              ⚡ Comprar agora
             </button>
           </div>
         </div>
@@ -346,6 +347,72 @@ function renderizarProdutos(lista){
 }
 
 renderizarProdutos(produtos);
+
+function renderizarMaisVendidos(){
+  if(!listaMaisVendidos) return;
+
+  const idsDestaque = [1, 11, 17, 5];
+  const destaques = produtos.filter(produto => idsDestaque.includes(produto.id));
+
+  listaMaisVendidos.innerHTML = "";
+
+  destaques.forEach(produto => {
+    listaMaisVendidos.innerHTML += `
+      <div class="card card-destaque">
+        <div class="imagem-card">
+          <img src="${produto.imagem}" alt="${produto.nome}">
+          <span class="selo-frete">🔥 Mais vendido</span>
+        </div>
+
+        <div class="card-info">
+          <span class="badge">${produto.status}</span>
+          <h3>${produto.nome}</h3>
+          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128)</small></div>
+          <p>${produto.descricao}</p>
+          <p class="estoque">⚠️ Apenas ${produto.estoque} peças restantes</p>
+          <p class="visualizando">👀 ${produto.visualizando} pessoas vendo agora</p>
+          <div class="preco">${dinheiro(produto.preco)}</div>
+
+          <div class="card-botoes">
+            <button class="btn secundario" onclick="abrirProduto(${produto.id})">Ver detalhes</button>
+            <button class="btn carrinho-btn" onclick="adicionarCarrinho(${produto.id})">🛒</button>
+            <button class="btn principal" onclick="comprarProduto(${produto.id})">⚡ Comprar agora</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+renderizarMaisVendidos();
+
+const notificacoes = [
+  "🔥 Lucas acabou de comprar Camisa Urban Print",
+  "🔥 João acabou de comprar Short Street Premium",
+  "🔥 Maria acabou de comprar Tênis Urban Black",
+  "🔥 Pedro acabou de comprar Moletom Essentials",
+  "🔥 Ana acabou de comprar Camisa Boxy Cream"
+];
+
+let notificacaoIndex = 0;
+
+function alternarNotificacaoCompra(){
+  const box = document.getElementById("notificacaoCompra");
+  if(!box) return;
+
+  box.classList.add("ativo");
+  box.innerText = notificacoes[notificacaoIndex];
+
+  notificacaoIndex = (notificacaoIndex + 1) % notificacoes.length;
+
+  setTimeout(() => {
+    box.classList.remove("ativo");
+  }, 4200);
+}
+
+setTimeout(alternarNotificacaoCompra, 1800);
+setInterval(alternarNotificacaoCompra, 9000);
+
 
 function abrirProduto(id){
   const produto = produtos.find(p => p.id === id);
@@ -369,7 +436,7 @@ function abrirProduto(id){
     fecharProduto();
   };
 
-  document.getElementById("btnComprarProduto").onclick = () => {
+  document.getElementById("btn⚡ Comprar agoraProduto").onclick = () => {
     comprarProduto(produto.id);
   };
 }
@@ -542,7 +609,7 @@ function voltarEntrega(){
 
 function confirmarPedido(){
   if(carrinho.length > 1){
-    alert("Seu carrinho tem mais de uma peça. Como cada peça possui checkout RisePay próprio, finalize uma peça por vez usando o botão Comprar.");
+    alert("Seu carrinho tem mais de uma peça. Como cada peça possui checkout RisePay próprio, finalize uma peça por vez usando o botão ⚡ Comprar agora.");
     return;
   }
 

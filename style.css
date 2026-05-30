@@ -129,7 +129,7 @@ body{
 /* HERO */
 
 .hero{
-  min-height:790px;
+  min-height:620px;
   position:relative;
   overflow:hidden;
   background:
@@ -156,7 +156,7 @@ body{
   right:-30px;
   top:160px;
   font-family:'Anton',sans-serif;
-  font-size:145px;
+  font-size:118px;
   color:rgba(245,196,0,.22);
   transform:rotate(-10deg);
   z-index:1;
@@ -165,8 +165,8 @@ body{
 .hero-content{
   position:relative;
   z-index:2;
-  min-height:790px;
-  padding:70px 60px 45px;
+  min-height:620px;
+  padding:45px 60px 35px;
   display:grid;
   grid-template-columns:1.1fr .9fr;
   align-items:center;
@@ -191,7 +191,7 @@ body{
 
 .hero h1{
   font-family:'Anton',sans-serif;
-  font-size:118px;
+  font-size:92px;
   line-height:.88;
   letter-spacing:2px;
   margin-top:22px;
@@ -314,7 +314,7 @@ body{
 }
 
 .hero-modelo{
-  min-height:560px;
+  min-height:420px;
   position:relative;
 }
 
@@ -322,8 +322,8 @@ body{
   position:absolute;
   right:20px;
   bottom:40px;
-  width:190px;
-  height:190px;
+  width:165px;
+  height:165px;
   border:2px solid var(--amarelo);
   border-radius:50%;
   display:flex;
@@ -1136,5 +1136,150 @@ footer{
 
   .atalhos-categorias button{
     width:100%;
+  }
+}
+
+/* UPGRADE DE CONVERSÃO */
+
+.confiança-premium{
+  margin:35px 60px 35px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.confiança-premium div{
+  background:linear-gradient(180deg,#161616,#080808);
+  border:1px solid rgba(245,196,0,.28);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+
+.confiança-premium strong{
+  display:block;
+  color:#fff;
+  font-size:15px;
+  text-transform:uppercase;
+  margin-top:8px;
+}
+
+.confiança-premium span{
+  color:#aaa;
+  display:block;
+  margin-top:5px;
+  font-size:13px;
+}
+
+.mais-vendidos{
+  padding:20px 60px 55px;
+}
+
+.titulo-secao{
+  margin-bottom:22px;
+}
+
+.titulo-secao h2{
+  font-size:42px;
+  text-transform:uppercase;
+  margin-top:6px;
+}
+
+.titulo-secao p{
+  color:#999;
+  margin-top:6px;
+}
+
+.destaques-produtos{
+  padding:0;
+  grid-template-columns:repeat(4,minmax(220px,1fr));
+}
+
+.card-destaque{
+  border-color:rgba(245,196,0,.55);
+  box-shadow:0 20px 55px rgba(245,196,0,.06);
+}
+
+.notificacao-compra{
+  position:fixed;
+  left:24px;
+  bottom:24px;
+  background:#0f0f0f;
+  color:#fff;
+  border:1px solid rgba(245,196,0,.55);
+  border-radius:999px;
+  padding:14px 20px;
+  font-weight:900;
+  z-index:1000;
+  transform:translateY(120px);
+  opacity:0;
+  transition:.35s;
+  box-shadow:0 16px 40px rgba(0,0,0,.42);
+}
+
+.notificacao-compra.ativo{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.principal{
+  background:linear-gradient(135deg,var(--amarelo),#ffb800);
+  color:#111;
+  box-shadow:0 12px 25px rgba(245,196,0,.18);
+}
+
+.card-botoes{
+  grid-template-columns:46px 1fr;
+}
+
+.card-botoes .principal{
+  text-transform:uppercase;
+}
+
+.estoque{
+  background:rgba(255,76,76,.09);
+  border:1px solid rgba(255,76,76,.22);
+  padding:8px 10px;
+  border-radius:10px;
+}
+
+.visualizando{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  padding:8px 10px;
+  border-radius:10px;
+}
+
+@media(max-width:1100px){
+  .confiança-premium,
+  .destaques-produtos{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:720px){
+  .confiança-premium,
+  .mais-vendidos{
+    margin-left:20px;
+    margin-right:20px;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .confiança-premium,
+  .destaques-produtos{
+    grid-template-columns:1fr;
+  }
+
+  .notificacao-compra{
+    left:14px;
+    right:14px;
+    bottom:84px;
+    border-radius:16px;
+    text-align:center;
+  }
+
+  .titulo-secao h2{
+    font-size:32px;
   }
 }
