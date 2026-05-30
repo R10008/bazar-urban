@@ -29,7 +29,7 @@ const produtos = [
     avaliacao:"★★★★★",
     visualizando:11,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:"https://conceitoprisma.com.br/wp-content/uploads/2022/07/jaqueta-jeans-vintage-conceito-prisma-azul-2.jpg"
+    imagem:"https://img.ltwebstatic.com/v4/j/spmp/2025/10/26/57/17614743499a8331436665140cdddf005e797ead92_thumbnail_420x.webp"
   },
   {
     id:3,
