@@ -387,10 +387,11 @@ function renderizarMaisVendidos(){
 renderizarMaisVendidos();
 
 const notificacoes = [
-  "🔥 Lucas acabou de comprar Camisa Urban Print",
+  "🔥 kleber6 acabou de comprar Camisa Urban Print",
   "🔥 João acabou de comprar Short Street Premium",
-  "🔥 Maria acabou de comprar Tênis Urban Black",
-  "🔥 Pedro acabou de comprar Moletom Essentials",
+  "🔥 felip acabou de comprar Camiseta Boxy Cream",
+  "🔥 denislon34 acabou de comprar Tênis Urban Black",
+  "🔥 lucivan acabou de comprar Moletom Essentials",
   "🔥 Ana acabou de comprar Camisa Boxy Cream"
 ];
 
