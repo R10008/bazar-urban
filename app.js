@@ -5,10 +5,13 @@ const produtos = [
     categoria:"jaqueta",
     preco:74.99,
     checkout:"https://pay.risepay.com.br/Pay/0a3078e4af6a4f3ebaa1c73e784dfd74",
-    status:"Peça única",
+    status:"🔥 Mais vendido",
     tamanho:"M",
     estado:"Novo",
     medidas:"70x55cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:18,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://m.media-amazon.com/images/I/51fZ8HdmIIL._AC_SX569_.jpg"
   },
@@ -22,6 +25,9 @@ const produtos = [
     tamanho:"G",
     estado:"Excelente estado",
     medidas:"72x58cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:11,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://conceitoprisma.com.br/wp-content/uploads/2022/07/jaqueta-jeans-vintage-conceito-prisma-azul-2.jpg"
   },
@@ -35,6 +41,9 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"74x56cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:15,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-m1e8lyn9mu002f"
   },
@@ -44,10 +53,13 @@ const produtos = [
     categoria:"calca",
     preco:79.90,
     checkout:"https://pay.risepay.com.br/Pay/373bd0e1b03947d9be5f23bd8e858b84",
-    status:"Peça única",
+    status:"Últimas unidades",
     tamanho:"M",
     estado:"Excelente estado",
     medidas:"105x44cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:9,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://www.tradeinn.com/f/14174/141749087/def-jeans-baggy.webp"
   },
@@ -57,10 +69,13 @@ const produtos = [
     categoria:"tenis",
     preco:119.90,
     checkout:"https://pay.risepay.com.br/Pay/7e7993ee294b477a86495945c8d34cee",
-    status:"Peça única",
+    status:"🚚 Frete grátis",
     tamanho:"39/40",
     estado:"Novo",
     medidas:"39/40 BR",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:21,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://static.netshoes.com.br/produtos/tenis-mormai-urban-free/06/7FG-0207-006/7FG-0207-006_zoom1.jpg?ts=1769000049&ims=1088x"
   },
@@ -74,6 +89,9 @@ const produtos = [
     tamanho:"G",
     estado:"Novo",
     medidas:"72x58cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:14,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://cdna.lystit.com/photos/boohooman/a3624f80/boohooman-designer-black-Bonded-Scuba-Oversized-Hoodie.jpeg"
   },
@@ -87,6 +105,9 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"74x56cm",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:12,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
     imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzj1jzgduexxa2"
   }
@@ -100,25 +121,50 @@ let carrinho = [];
 let frete = 0;
 let produtoSelecionado = null;
 
+function dinheiro(valor){
+  return `R$ ${Number(valor).toFixed(2).replace(".",",")}`;
+}
+
+function subtotalCarrinho(){
+  return carrinho.reduce((total,item) => total + Number(item.preco),0);
+}
+
 function renderizarProdutos(lista){
   listaProdutos.innerHTML = "";
 
   lista.forEach(produto => {
+    const freteGratis = produto.preco >= 119.90 ? `<span class="selo-frete">🚚 Frete grátis</span>` : "";
+
     listaProdutos.innerHTML += `
       <div class="card">
-        <img src="${produto.imagem}">
+        <div class="imagem-card">
+          <img src="${produto.imagem}" alt="${produto.nome}">
+          ${freteGratis}
+        </div>
+
         <div class="card-info">
           <span class="badge">${produto.status}</span>
+
           <h3>${produto.nome}</h3>
+
+          <div class="avaliacoes">${produto.avaliacao} <small>(4.9)</small></div>
+
           <p>${produto.descricao}</p>
 
+          <p class="estoque">🔥 Restam apenas ${produto.estoque} unidades</p>
+          <p class="visualizando">👀 ${produto.visualizando} pessoas vendo agora</p>
+
           <div class="preco">
-            R$ ${Number(produto.preco).toFixed(2).replace(".",",")}
+            ${dinheiro(produto.preco)}
           </div>
 
           <div class="card-botoes">
             <button class="btn secundario" onclick="abrirProduto(${produto.id})">
               Ver peça
+            </button>
+
+            <button class="btn carrinho-btn" onclick="adicionarCarrinho(${produto.id})">
+              + Carrinho
             </button>
 
             <button class="btn principal" onclick="comprarProduto(${produto.id})">
@@ -135,25 +181,44 @@ renderizarProdutos(produtos);
 
 function abrirProduto(id){
   const produto = produtos.find(p => p.id === id);
+  produtoSelecionado = produto;
 
   document.getElementById("modalProduto").style.display = "flex";
   document.getElementById("produtoImagem").src = produto.imagem;
   document.getElementById("produtoNome").innerText = produto.nome;
   document.getElementById("produtoDescricao").innerText = produto.descricao;
-  document.getElementById("produtoPreco").innerText =
-    `R$ ${Number(produto.preco).toFixed(2).replace(".",",")}`;
+  document.getElementById("produtoPreco").innerText = dinheiro(produto.preco);
   document.getElementById("produtoStatus").innerText = produto.status;
   document.getElementById("produtoTamanho").innerText = produto.tamanho;
   document.getElementById("produtoEstado").innerText = produto.estado;
   document.getElementById("produtoMedidas").innerText = produto.medidas;
+  document.getElementById("produtoEstoque").innerText = `Restam apenas ${produto.estoque} unidades`;
+  document.getElementById("produtoAvaliacao").innerHTML = `${produto.avaliacao} <small>(4.9)</small>`;
+  document.getElementById("produtoVisualizando").innerText = `👀 ${produto.visualizando} pessoas vendo agora`;
 
   document.getElementById("btnAdicionarProduto").onclick = () => {
+    adicionarCarrinho(produto.id);
+    fecharProduto();
+  };
+
+  document.getElementById("btnComprarProduto").onclick = () => {
     comprarProduto(produto.id);
   };
 }
 
 function fecharProduto(){
   document.getElementById("modalProduto").style.display = "none";
+}
+
+function adicionarCarrinho(id){
+  const produto = produtos.find(p => p.id === id);
+
+  if(!carrinho.find(item => item.id === id)){
+    carrinho.push(produto);
+  }
+
+  atualizarCarrinho();
+  abrirCarrinho();
 }
 
 function comprarProduto(id){
@@ -173,44 +238,50 @@ function comprarProduto(id){
   abrirCheckout();
 }
 
+function removerCarrinho(id){
+  carrinho = carrinho.filter(item => item.id !== id);
+  atualizarCarrinho();
+}
+
 function atualizarCarrinho(){
   document.getElementById("contador").innerText = carrinho.length;
 
   const area = document.getElementById("itensCarrinho");
   area.innerHTML = "";
 
-  let subtotal = 0;
+  const subtotal = subtotalCarrinho();
 
   carrinho.forEach(item => {
-    subtotal += Number(item.preco);
-
     area.innerHTML += `
       <div class="item">
         <img src="${item.imagem}">
         <div>
           <h4>${item.nome}</h4>
-          <p>R$ ${Number(item.preco).toFixed(2).replace(".",",")}</p>
+          <p>${dinheiro(item.preco)}</p>
+          <button class="remover" onclick="removerCarrinho(${item.id})">Remover</button>
         </div>
       </div>
     `;
   });
 
+  if(carrinho.length === 0){
+    area.innerHTML = `<p class="texto-menor">Seu carrinho está vazio.</p>`;
+  }
+
+  if(subtotal >= 119.90){
+    frete = 0;
+    document.getElementById("freteCarrinho").innerText = "Grátis";
+  }else{
+    document.getElementById("freteCarrinho").innerText = "Calcule no checkout";
+  }
+
   const total = subtotal + frete;
 
-  document.getElementById("subtotal").innerText =
-    `R$ ${subtotal.toFixed(2).replace(".",",")}`;
-
-  document.getElementById("totalCarrinho").innerText =
-    `R$ ${total.toFixed(2).replace(".",",")}`;
-
-  document.getElementById("checkoutSubtotal").innerText =
-    `R$ ${subtotal.toFixed(2).replace(".",",")}`;
-
-  document.getElementById("checkoutFrete").innerText =
-    `R$ ${frete.toFixed(2).replace(".",",")}`;
-
-  document.getElementById("checkoutTotal").innerText =
-    `R$ ${total.toFixed(2).replace(".",",")}`;
+  document.getElementById("subtotal").innerText = dinheiro(subtotal);
+  document.getElementById("totalCarrinho").innerText = dinheiro(total);
+  document.getElementById("checkoutSubtotal").innerText = dinheiro(subtotal);
+  document.getElementById("checkoutFrete").innerText = subtotal >= 119.90 ? "Grátis" : dinheiro(frete);
+  document.getElementById("checkoutTotal").innerText = dinheiro(total);
 }
 
 atualizarCarrinho();
@@ -229,6 +300,7 @@ function abrirCheckout(){
     return;
   }
 
+  fecharCarrinho();
   document.getElementById("checkout").style.display = "flex";
 
   document.getElementById("areaDados").classList.remove("escondido");
@@ -238,6 +310,8 @@ function abrirCheckout(){
   document.getElementById("passo1").classList.add("ativo");
   document.getElementById("passo2").classList.remove("ativo");
   document.getElementById("passo3").classList.remove("ativo");
+
+  atualizarCarrinho();
 }
 
 function fecharCheckout(){
@@ -279,11 +353,19 @@ function calcularFrete(){
     return;
   }
 
-  frete = 27.90;
-  atualizarCarrinho();
+  const subtotal = subtotalCarrinho();
 
-  document.getElementById("resultadoFrete").innerText =
-    `Frete calculado: R$ ${frete.toFixed(2).replace(".",",")}`;
+  if(subtotal >= 119.90){
+    frete = 0;
+    document.getElementById("resultadoFrete").innerText =
+      "🚚 Frete grátis aplicado acima de R$119,90";
+  }else{
+    frete = 27.90;
+    document.getElementById("resultadoFrete").innerText =
+      `Frete calculado: ${dinheiro(frete)}`;
+  }
+
+  atualizarCarrinho();
 
   document.getElementById("areaEntrega").classList.add("escondido");
   document.getElementById("areaPagamento").classList.remove("escondido");
@@ -309,10 +391,6 @@ function confirmarPedido(){
   }
 
   window.location.href = produto.checkout;
-}
-
-function fecharPedidoFinalizado(){
-  document.getElementById("pedidoFinalizado").style.display = "none";
 }
 
 pesquisa.addEventListener("input", filtrar);

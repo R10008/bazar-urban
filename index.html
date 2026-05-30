@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Bazar Urban | Peças Únicas</title>
-  <meta name="description" content="Bazar Urban: peças únicas, garimpadas e prontas entrega. Roupas, tênis e acessórios exclusivos." />
+  <meta name="description" content="Bazar Urban: peças únicas, garimpadas e pronta entrega. Roupas, tênis e acessórios exclusivos." />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="topo">
+<div class="barra-promocao">
+  🚚 FRETE GRÁTIS ACIMA DE R$119,90 • PIX E CARTÃO • ESTOQUE LIMITADO
+</div>
 
+<header class="topo">
   <a href="#" class="logo">
     <span class="mini-logo">BAZAR</span>
     <strong>URBAN</strong>
@@ -28,15 +31,11 @@
       Carrinho <span id="contador">0</span>
     </button>
   </nav>
-
 </header>
 
 <section class="hero-premium">
-
   <div class="hero-texto">
-    <span class="badge">
-      DROP LIMITADO • PEÇAS EXCLUSIVAS
-    </span>
+    <span class="badge">DROP LIMITADO • PEÇAS EXCLUSIVAS</span>
 
     <h1>
       Streetwear premium <br>
@@ -44,26 +43,36 @@
     </h1>
 
     <p>
-      Peças selecionadas manualmente.
-      Estoque limitado, modelagens exclusivas
-      e identidade urbana.
+      Peças selecionadas manualmente. Estoque limitado,
+      modelagens exclusivas e identidade urbana.
     </p>
 
     <div class="hero-acoes">
-      <a href="#produtos" class="btn-hero">
-        Explorar coleção
-      </a>
-
-      <button class="btn-secundario">
-        Meu carrinho
-      </button>
+      <a href="#produtos" class="btn-hero">Explorar coleção</a>
+      <button onclick="abrirCarrinho()" class="btn-secundario">Meu carrinho</button>
     </div>
   </div>
 
   <div class="hero-imagem">
-    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop" alt="">
+    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop" alt="Bazar Urban">
+  </div>
+</section>
+
+<section class="beneficios">
+  <div>
+    <strong>🚚 Frete grátis</strong>
+    <span>acima de R$119,90</span>
   </div>
 
+  <div>
+    <strong>💳 Pix e cartão</strong>
+    <span>pagamento seguro via RisePay</span>
+  </div>
+
+  <div>
+    <strong>🔥 Últimas unidades</strong>
+    <span>peças com estoque limitado</span>
+  </div>
 </section>
 
 <section class="filtros" id="produtos">
@@ -105,12 +114,17 @@
 
   <details>
     <summary>As peças são únicas?</summary>
-    <p>Sim. Cada peça possui apenas uma unidade disponível.</p>
+    <p>Sim. Cada peça possui disponibilidade limitada.</p>
   </details>
 
   <details>
     <summary>Como funciona o pagamento?</summary>
-    <p>Atualmente a loja simula Pix e cartão. Depois vamos integrar Mercado Pago real.</p>
+    <p>Após preencher seus dados, você será redirecionado para o checkout seguro da RisePay.</p>
+  </details>
+
+  <details>
+    <summary>Tem frete grátis?</summary>
+    <p>Sim. O frete é grátis para pedidos acima de R$119,90.</p>
   </details>
 
   <details>
@@ -124,13 +138,13 @@
     <button class="fechar" onclick="fecharCarrinho()">×</button>
 
     <h2>Seu carrinho</h2>
-    <p class="texto-menor">Peças adicionadas ficam salvas neste navegador.</p>
+    <p class="texto-menor">Produtos adicionados ficam aqui antes da finalização.</p>
 
     <div id="itensCarrinho" class="itens"></div>
 
     <div class="resumo">
       <p>Subtotal <strong id="subtotal">R$ 0,00</strong></p>
-      <p>Frete <strong id="freteCarrinho">Calcule no checkout</strong></p>
+      <p>Frete <strong id="freteCarrinho">Grátis acima de R$119,90</strong></p>
       <h3>Total <span id="totalCarrinho">R$ 0,00</span></h3>
     </div>
 
@@ -151,17 +165,27 @@
       <h2 id="produtoNome"></h2>
       <p id="produtoDescricao"></p>
 
+      <div class="avaliacoes" id="produtoAvaliacao"></div>
+      <p class="visualizando" id="produtoVisualizando"></p>
+
       <div class="dados-produto">
         <p><strong>Tamanho:</strong> <span id="produtoTamanho"></span></p>
         <p><strong>Estado:</strong> <span id="produtoEstado"></span></p>
         <p><strong>Medidas:</strong> <span id="produtoMedidas"></span></p>
+        <p><strong>Estoque:</strong> <span id="produtoEstoque"></span></p>
       </div>
 
       <h3 id="produtoPreco"></h3>
 
-      <button id="btnAdicionarProduto" class="btn principal cheio">
-        Adicionar ao carrinho
-      </button>
+      <div class="modal-botoes">
+        <button id="btnAdicionarProduto" class="btn carrinho-btn cheio">
+          + Carrinho
+        </button>
+
+        <button id="btnComprarProduto" class="btn principal cheio">
+          Comprar agora
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -203,11 +227,10 @@
       <h3>Pagamento</h3>
 
       <div id="boxPix" class="box-pagamento">
-        <p>
-     Pagamento seguro via RisePay.
-    Você será redirecionado para finalizar.
-   </p> 
-</div>
+        <p>💳 Pagamento seguro via Pix ou Cartão pela RisePay.</p>
+        <p>Você será redirecionado para finalizar.</p>
+      </div>
+
       <div class="resumo final">
         <p>Subtotal <strong id="checkoutSubtotal">R$ 0,00</strong></p>
         <p>Frete <strong id="checkoutFrete">R$ 0,00</strong></p>
@@ -215,23 +238,8 @@
       </div>
 
       <button class="btn secundario" onclick="voltarEntrega()">Voltar</button>
-      <button class="btn principal" onclick="confirmarPedido()">Confirmar pedido</button>
+      <button class="btn principal" onclick="confirmarPedido()">Ir para pagamento</button>
     </div>
-  </div>
-</div>
-
-<div id="pedidoFinalizado" class="modal">
-  <div class="pedido-ok">
-    <h2>Pedido recebido!</h2>
-    <p id="numeroPedido"></p>
-    <p>
-      Seu pedido foi registrado. Em uma loja real, aqui o cliente receberia
-      a confirmação do pagamento e o acompanhamento da entrega.
-    </p>
-
-    <button class="btn principal cheio" onclick="fecharPedidoFinalizado()">
-      Voltar para loja
-    </button>
   </div>
 </div>
 
