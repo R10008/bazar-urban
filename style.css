@@ -1099,3 +1099,42 @@ footer{
     grid-template-columns:1fr;
   }
 }
+
+/* ATALHOS DE CATEGORIA */
+
+.atalhos-categorias{
+  width:100%;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  margin-top:18px;
+}
+
+.atalhos-categorias button{
+  background:#111;
+  color:#fff;
+  border:1px solid rgba(245,196,0,.45);
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+  text-transform:uppercase;
+  transition:.25s;
+}
+
+.atalhos-categorias button:hover{
+  background:var(--amarelo);
+  color:#111;
+  transform:translateY(-3px);
+}
+
+@media(max-width:720px){
+  .atalhos-categorias{
+    justify-content:flex-start;
+  }
+
+  .atalhos-categorias button{
+    width:100%;
+  }
+}

@@ -2,7 +2,7 @@ const produtos = [
   {
     id:1,
     nome:"Moletom Essentials",
-    categoria:"jaqueta",
+    categoria:"camiseta",
     preco:74.99,
     checkout:"https://pay.risepay.com.br/Pay/0a3078e4af6a4f3ebaa1c73e784dfd74",
     status:"🔥 Mais vendido",
@@ -18,7 +18,7 @@ const produtos = [
   {
     id:2,
     nome:"Jaqueta Denim Vintage",
-    categoria:"jaqueta",
+    categoria:"camiseta",
     preco:87.02,
     checkout:"https://pay.risepay.com.br/Pay/a9d6d2bdadcc4132ab006755cf56180e",
     status:"Peça única",
@@ -49,7 +49,7 @@ const produtos = [
   },
   {
     id:4,
-    nome:"Calça Baggy Jeans",
+    nome:"Short/Baggy Jeans Urban",
     categoria:"calca",
     preco:79.90,
     checkout:"https://pay.risepay.com.br/Pay/373bd0e1b03947d9be5f23bd8e858b84",
@@ -60,8 +60,8 @@ const produtos = [
     estoque:2,
     avaliacao:"★★★★★",
     visualizando:9,
-    descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:"https://www.tradeinn.com/f/14174/141749087/def-jeans-baggy.webp"
+    descricao:"Peça selecionada manualmente para composições streetwear na categoria shorts.",
+    imagem:"https://i.pinimg.com/originals/0a/cb/9d/0acb9d6241abe0c9a0cf0cc5a7bc1f53.jpg"
   },
   {
     id:5,
@@ -82,7 +82,7 @@ const produtos = [
   {
     id:6,
     nome:"Hoodie Oversized",
-    categoria:"jaqueta",
+    categoria:"camiseta",
     preco:89.90,
     checkout:"https://pay.risepay.com.br/Pay/21c3ad7cde9946dcbb053635ea7af56e",
     status:"Peça única",

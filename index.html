@@ -106,21 +106,26 @@
 <section class="filtros" id="produtos">
   <div>
     <span class="mini-titulo">Coleção ativa</span>
-    <h2>Produtos em destaque</h2>
-    <p>Peças selecionadas especialmente para você.</p>
+    <h2>Camisas, shorts e tênis</h2>
+    <p>Escolha por categoria e garanta sua peça antes que acabe.</p>
   </div>
 
   <div class="filtro-campos">
     <input id="pesquisa" type="text" placeholder="Buscar peça..." />
 
     <select id="categoria">
-      <option value="todos">Todas categorias</option>
-      <option value="camiseta">Camisetas</option>
-      <option value="calca">Calças</option>
-      <option value="jaqueta">Jaquetas</option>
-      <option value="tenis">Tênis</option>
-      <option value="acessorio">Acessórios</option>
+      <option value="todos">Todos os produtos</option>
+      <option value="camiseta">👕 Camisas</option>
+      <option value="calca">🩳 Shorts</option>
+      <option value="tenis">👟 Tênis</option>
     </select>
+  </div>
+
+  <div class="atalhos-categorias">
+    <button onclick="document.getElementById('categoria').value='todos'; filtrar();">Todos</button>
+    <button onclick="document.getElementById('categoria').value='camiseta'; filtrar();">👕 Camisas</button>
+    <button onclick="document.getElementById('categoria').value='calca'; filtrar();">🩳 Shorts</button>
+    <button onclick="document.getElementById('categoria').value='tenis'; filtrar();">👟 Tênis</button>
   </div>
 </section>
 
