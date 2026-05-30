@@ -147,7 +147,7 @@ function renderizarProdutos(lista){
 
           <h3>${produto.nome}</h3>
 
-          <div class="avaliacoes">${produto.avaliacao} <small>(4.9)</small></div>
+          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128 avaliações)</small></div>
 
           <p>${produto.descricao}</p>
 
@@ -193,7 +193,7 @@ function abrirProduto(id){
   document.getElementById("produtoEstado").innerText = produto.estado;
   document.getElementById("produtoMedidas").innerText = produto.medidas;
   document.getElementById("produtoEstoque").innerText = `Restam apenas ${produto.estoque} unidades`;
-  document.getElementById("produtoAvaliacao").innerHTML = `${produto.avaliacao} <small>(4.9)</small>`;
+  document.getElementById("produtoAvaliacao").innerHTML = `${produto.avaliacao} <small>4.9/5 (128 avaliações)</small>`;
   document.getElementById("produtoVisualizando").innerText = `👀 ${produto.visualizando} pessoas vendo agora`;
 
   document.getElementById("btnAdicionarProduto").onclick = () => {
@@ -383,6 +383,11 @@ function voltarEntrega(){
 }
 
 function confirmarPedido(){
+  if(carrinho.length > 1){
+    alert("Seu carrinho tem mais de uma peça. Como cada peça possui checkout RisePay próprio, finalize uma peça por vez usando o botão Comprar.");
+    return;
+  }
+
   const produto = produtoSelecionado || carrinho[0];
 
   if(!produto || !produto.checkout){

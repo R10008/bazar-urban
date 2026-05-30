@@ -26,6 +26,8 @@
     <a href="#produtos">Produtos</a>
     <a href="#sobre">Sobre</a>
     <a href="#duvidas">Dúvidas</a>
+    <a href="#beneficios">Frete grátis</a>
+    <a href="#rastreio">Rastreio</a>
 
     <button onclick="abrirCarrinho()" class="btn-carrinho">
       Carrinho <span id="contador">0</span>
@@ -58,7 +60,7 @@
   </div>
 </section>
 
-<section class="beneficios">
+<section class="beneficios" id="beneficios">
   <div>
     <strong>🚚 Frete grátis</strong>
     <span>acima de R$119,90</span>
@@ -73,6 +75,10 @@
     <strong>🔥 Últimas unidades</strong>
     <span>peças com estoque limitado</span>
   </div>
+</section>
+
+<section class="alerta-vendas">
+  🔥 Mais de 37 pedidos realizados esta semana • ⭐ Produtos avaliados com 4.9/5 • Envio rápido
 </section>
 
 <section class="filtros" id="produtos">
@@ -138,7 +144,7 @@
     <button class="fechar" onclick="fecharCarrinho()">×</button>
 
     <h2>Seu carrinho</h2>
-    <p class="texto-menor">Produtos adicionados ficam aqui antes da finalização.</p>
+    <p class="texto-menor">Peças adicionadas ficam salvas neste navegador.</p>
 
     <div id="itensCarrinho" class="itens"></div>
 
@@ -242,6 +248,14 @@
     </div>
   </div>
 </div>
+
+<section class="rastreio" id="rastreio">
+  <div>
+    <span class="badge">Rastreio</span>
+    <h2>Acompanhe seu pedido pelo WhatsApp.</h2>
+    <p>Após a confirmação do pagamento, o suporte envia as informações de envio e acompanhamento do pedido.</p>
+  </div>
+</section>
 
 <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">
   Suporte WhatsApp

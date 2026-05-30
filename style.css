@@ -763,6 +763,8 @@ footer p{
 
 }
 
+/* UPGRADES DE CONVERSÃO */
+
 .barra-promocao{
   background:linear-gradient(90deg,#111,#1f1f1f,#111);
   color:#fff;
@@ -777,6 +779,17 @@ footer p{
   align-items:center;
   gap:8px;
   border-bottom:2px solid #f5c542;
+}
+
+.alerta-vendas{
+  margin:0 60px 45px;
+  background:#fff;
+  border:2px solid #111;
+  border-radius:18px;
+  padding:18px 24px;
+  text-align:center;
+  font-weight:800;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 .imagem-card{
@@ -836,8 +849,43 @@ footer p{
   gap:12px;
 }
 
+.rastreio{
+  padding:80px 60px;
+  background:#111;
+  color:white;
+}
+
+.rastreio h2{
+  margin-top:18px;
+  font-size:42px;
+}
+
+.rastreio p{
+  margin-top:18px;
+  max-width:700px;
+  line-height:1.8;
+  color:#ddd;
+}
+
+.rastreio .badge{
+  background:#f5c542;
+  color:#111;
+}
+
 @media(max-width:700px){
   .modal-botoes{
     grid-template-columns:1fr;
+  }
+
+  .alerta-vendas{
+    margin:0 20px 35px;
+  }
+
+  .rastreio{
+    padding:60px 20px;
+  }
+
+  .rastreio h2{
+    font-size:32px;
   }
 }
