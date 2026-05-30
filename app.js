@@ -360,7 +360,7 @@ function calcularFrete(){
     document.getElementById("resultadoFrete").innerText =
       "🚚 Frete grátis aplicado acima de R$119,90";
   }else{
-    frete = 27.90;
+    frete = 0.00;
     document.getElementById("resultadoFrete").innerText =
       `Frete calculado: ${dinheiro(frete)}`;
   }
