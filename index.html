@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bazar Urban | Peças Únicas</title>
-  <meta name="description" content="Bazar Urban: peças únicas, garimpadas e pronta entrega. Roupas, tênis e acessórios exclusivos." />
+  <title>Bazar Urban | Premium Streetwear</title>
+  <meta name="description" content="Bazar Urban: peças únicas, streetwear premium, frete grátis, Pix e cartão via RisePay." />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="barra-promocao">
-  🔥 FRETE GRÁTIS PARA TODO BRASIL • PIX E CARTÃO • ENVIO EM ATÉ 24H
+<div class="top-alert">
+  <span>🔥 37 pessoas estão vendo produtos agora</span>
+  <span>🚚 Frete grátis para todo Brasil</span>
+  <span>💳 Pix e cartão</span>
+  <span>📦 Envio em até 24h</span>
+  <span>⭐ 4.9/5 em avaliações</span>
 </div>
 
 <header class="topo">
   <a href="#" class="logo">
-    <span class="mini-logo">BAZAR</span>
+    <span>BAZAR</span>
     <strong>URBAN</strong>
     <small>premium streetwear</small>
   </a>
@@ -30,87 +34,87 @@
     <a href="#rastreio">Rastreio</a>
 
     <button onclick="abrirCarrinho()" class="btn-carrinho">
-      Carrinho <span id="contador">0</span>
+      🛒 Carrinho <span id="contador">0</span>
     </button>
   </nav>
 </header>
 
-<section class="hero-premium">
-  <div class="hero-texto">
-    <span class="badge">DROP LIMITADO • PEÇAS EXCLUSIVAS</span>
+<section class="hero">
+  <div class="hero-overlay"></div>
 
-    <h1>
-      Streetwear premium <br>
-      para quem não veste o comum.
-    </h1>
+  <div class="hero-content">
+    <div class="hero-texto">
+      <span class="badge-amarela">DROP LIMITADO 2026</span>
 
-    <p>
-      Peças selecionadas manualmente. Estoque limitado,
-      modelagens exclusivas e identidade urbana.
-    </p>
+      <h1>
+        BAZAR <br>
+        <span>URBAN</span>
+      </h1>
 
-    <div class="hero-acoes">
-      <a href="#produtos" class="btn-hero">Explorar coleção</a>
-      <button onclick="abrirCarrinho()" class="btn-secundario">Meu carrinho</button>
+      <h2>Peças exclusivas para quem <mark>não segue tendências.</mark></h2>
+
+      <div class="hero-beneficios">
+        <div>🚚 <strong>Frete grátis</strong><small>para todo Brasil</small></div>
+        <div>💳 <strong>Pix e cartão</strong><small>via RisePay</small></div>
+        <div>📦 <strong>Envio em 24h</strong><small>após confirmação</small></div>
+        <div>🛡️ <strong>Compra segura</strong><small>dados protegidos</small></div>
+      </div>
+
+      <div class="hero-acoes">
+        <a href="#produtos" class="btn-amarelo">Comprar agora →</a>
+        <a href="#produtos" class="btn-vazado">Ver coleção</a>
+      </div>
+
+      <div class="hero-prova">
+        <div class="avatars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <strong>⭐⭐⭐⭐⭐ 4.9/5</strong>
+          <p>+1.200 pedidos entregues</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="hero-imagem">
-    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop" alt="Bazar Urban">
-  </div>
-</section>
-
-<section class="beneficios" id="beneficios">
-  <div>
-    <strong>🚚 Frete grátis</strong>
-    <span>para todo o Brasil</span>
-  </div>
-
-  <div>
-    <strong>💳 Pix e cartão</strong>
-    <span>pagamento seguro via RisePay</span>
-  </div>
-
-  <div>
-    <strong>📦 Envio rápido</strong>
-    <span>postagem em até 24h após confirmação</span>
+    <div class="hero-modelo">
+      <div class="circle-text">
+        <strong>ÚLTIMAS</strong>
+        <span>UNIDADES</span>
+        <small>GARANTA A SUA!</small>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="prova-social">
   <div>
-    <strong>+1.200</strong>
-    <span>pedidos entregues</span>
+    <strong>🔥 +37 pedidos</strong>
+    <span>realizados esta semana</span>
   </div>
+
   <div>
-    <strong>4.9/5</strong>
+    <strong>⭐ 4.9/5</strong>
     <span>avaliação média</span>
   </div>
-  <div>
-    <strong>100%</strong>
-    <span>pagamento seguro</span>
-  </div>
-  <div>
-    <strong>Brasil</strong>
-    <span>envio nacional</span>
-  </div>
-</section>
 
-<section class="alerta-vendas">
-  🔥 Mais de 37 pedidos realizados esta semana • ⭐ 4.9/5 em avaliações • 🚚 Frete grátis para todo Brasil
+  <div>
+    <strong>🚚 Frete grátis</strong>
+    <span>para todo Brasil</span>
+  </div>
 </section>
 
 <section class="filtros" id="produtos">
   <div>
-    <h2>Produtos disponíveis</h2>
-    <p>Escolha sua peça antes que acabe.</p>
+    <span class="mini-titulo">Coleção ativa</span>
+    <h2>Produtos em destaque</h2>
+    <p>Peças selecionadas especialmente para você.</p>
   </div>
 
   <div class="filtro-campos">
     <input id="pesquisa" type="text" placeholder="Buscar peça..." />
 
     <select id="categoria">
-      <option value="todos">Todas</option>
+      <option value="todos">Todas categorias</option>
       <option value="camiseta">Camisetas</option>
       <option value="calca">Calças</option>
       <option value="jaqueta">Jaquetas</option>
@@ -122,15 +126,37 @@
 
 <main id="listaProdutos" class="produtos"></main>
 
+<section class="beneficios" id="beneficios">
+  <div>
+    <strong>🚚 Frete grátis</strong>
+    <span>para todo Brasil</span>
+  </div>
+
+  <div>
+    <strong>💳 Pix e cartão</strong>
+    <span>pagamento seguro</span>
+  </div>
+
+  <div class="destaque">
+    <strong>📦 Envio em 24h</strong>
+    <span>após confirmação</span>
+  </div>
+
+  <div>
+    <strong>🛡️ Compra segura</strong>
+    <span>dados protegidos</span>
+  </div>
+</section>
+
 <section id="sobre" class="sobre">
   <div>
-    <span class="badge">Sobre a marca</span>
-    <h2>Bazar Urban é sobre exclusividade.</h2>
+    <span class="badge-amarela">Sobre a marca</span>
+    <h2>Bazar Urban é sobre identidade.</h2>
   </div>
 
   <p>
-    Trabalhamos com peças garimpadas, selecionadas manualmente e com estoque limitado.
-    Aqui cada produto tem personalidade própria e disponibilidade única.
+    Trabalhamos com peças únicas, selecionadas manualmente e com estoque limitado.
+    Aqui cada produto tem personalidade própria, visual urbano e disponibilidade exclusiva.
   </p>
 </section>
 
@@ -139,12 +165,12 @@
 
   <details>
     <summary>As peças são únicas?</summary>
-    <p>Sim. Cada peça possui disponibilidade limitada.</p>
+    <p>Sim. Cada peça possui disponibilidade limitada e pode acabar rápido.</p>
   </details>
 
   <details>
     <summary>Como funciona o pagamento?</summary>
-    <p>Após preencher seus dados, você será redirecionado para o checkout seguro da RisePay.</p>
+    <p>Após preencher seus dados, você será redirecionado para o checkout seguro da RisePay com Pix ou cartão.</p>
   </details>
 
   <details>
@@ -158,18 +184,26 @@
   </details>
 </section>
 
+<section class="rastreio" id="rastreio">
+  <div>
+    <span class="badge-amarela">Rastreio</span>
+    <h2>Acompanhe seu pedido pelo WhatsApp.</h2>
+    <p>Após a confirmação do pagamento, enviamos as informações de envio e acompanhamento pelo WhatsApp. Postagem em até 24h úteis.</p>
+  </div>
+</section>
+
 <aside id="carrinho" class="carrinho">
   <div class="carrinho-box">
     <button class="fechar" onclick="fecharCarrinho()">×</button>
 
     <h2>Seu carrinho</h2>
-    <p class="texto-menor">Peças adicionadas ficam salvas neste navegador.</p>
+    <p class="texto-menor">Peças adicionadas ficam aqui antes da finalização.</p>
 
     <div id="itensCarrinho" class="itens"></div>
 
     <div class="resumo">
       <p>Subtotal <strong id="subtotal">R$ 0,00</strong></p>
-      <p>Frete <strong id="freteCarrinho">Grátis acima de R$119,90</strong></p>
+      <p>Frete <strong id="freteCarrinho">Grátis</strong></p>
       <h3>Total <span id="totalCarrinho">R$ 0,00</span></h3>
     </div>
 
@@ -198,6 +232,8 @@
         <p><strong>Estado:</strong> <span id="produtoEstado"></span></p>
         <p><strong>Medidas:</strong> <span id="produtoMedidas"></span></p>
         <p><strong>Estoque:</strong> <span id="produtoEstoque"></span></p>
+        <p><strong>Entrega:</strong> Frete grátis para todo Brasil</p>
+        <p><strong>Pagamento:</strong> Pix ou cartão via RisePay</p>
       </div>
 
       <h3 id="produtoPreco"></h3>
@@ -243,7 +279,7 @@
       <input id="enderecoCliente" placeholder="Endereço completo">
 
       <button class="btn secundario" onclick="voltarDados()">Voltar</button>
-      <button class="btn principal" onclick="calcularFrete()">Calcular frete</button>
+      <button class="btn principal" onclick="calcularFrete()">Continuar</button>
 
       <p id="resultadoFrete" class="texto-menor"></p>
     </div>
@@ -258,7 +294,7 @@
 
       <div class="resumo final">
         <p>Subtotal <strong id="checkoutSubtotal">R$ 0,00</strong></p>
-        <p>Frete <strong id="checkoutFrete">R$ 0,00</strong></p>
+        <p>Frete <strong id="checkoutFrete">Grátis</strong></p>
         <h3>Total <span id="checkoutTotal">R$ 0,00</span></h3>
       </div>
 
@@ -268,40 +304,36 @@
   </div>
 </div>
 
-<section class="rastreio" id="rastreio">
-  <div>
-    <span class="badge">Rastreio</span>
-    <h2>Acompanhe seu pedido pelo WhatsApp.</h2>
-    <p>Após a confirmação do pagamento, enviamos as informações de envio e acompanhamento pelo WhatsApp. Postagem em até 24h úteis.</p>
-  </div>
-</section>
+<div id="toast" class="toast"></div>
 
 <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">
-  Suporte WhatsApp
+  Fale conosco
 </a>
 
 <footer>
   <div class="footer-grid">
     <div>
       <strong>Bazar Urban</strong>
-      <p>Peças únicas • Garimpo urbano • Pronta entrega</p>
+      <p>Peças únicas, estilo autêntico e identidade urbana.</p>
     </div>
 
     <div>
-      <strong>Pagamento</strong>
-      <p>Pix • Cartão • RisePay</p>
-    </div>
-
-    <div>
-      <strong>Entrega</strong>
-      <p>Frete grátis • Envio para todo Brasil</p>
+      <strong>Institucional</strong>
+      <p>Sobre nós<br>Trocas e devoluções<br>Termos de uso</p>
     </div>
 
     <div>
       <strong>Atendimento</strong>
-      <p>Suporte pelo WhatsApp</p>
+      <p>WhatsApp<br>Seg - Sex: 9h às 18h</p>
+    </div>
+
+    <div>
+      <strong>Pagamento</strong>
+      <p>Pix<br>Cartão<br>RisePay</p>
     </div>
   </div>
+
+  <p class="copyright">© 2026 Bazar Urban. Todos os direitos reservados.</p>
 </footer>
 
 <script src="app.js"></script>

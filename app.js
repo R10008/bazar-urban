@@ -53,7 +53,7 @@ const produtos = [
     categoria:"calca",
     preco:79.90,
     checkout:"https://pay.risepay.com.br/Pay/373bd0e1b03947d9be5f23bd8e858b84",
-    status:"Últimas unidades",
+    status:"⚡ Últimas unidades",
     tamanho:"M",
     estado:"Excelente estado",
     medidas:"105x44cm",
@@ -129,17 +129,23 @@ function subtotalCarrinho(){
   return carrinho.reduce((total,item) => total + Number(item.preco),0);
 }
 
+function toast(msg){
+  const el = document.getElementById("toast");
+  if(!el) return;
+  el.innerText = msg;
+  el.classList.add("ativo");
+  setTimeout(() => el.classList.remove("ativo"), 2400);
+}
+
 function renderizarProdutos(lista){
   listaProdutos.innerHTML = "";
 
   lista.forEach(produto => {
-    const freteGratis = `<span class="selo-frete">🚚 Frete grátis</span>`;
-
     listaProdutos.innerHTML += `
       <div class="card">
         <div class="imagem-card">
           <img src="${produto.imagem}" alt="${produto.nome}">
-          ${freteGratis}
+          <span class="selo-frete">🚚 Frete grátis</span>
         </div>
 
         <div class="card-info">
@@ -147,12 +153,12 @@ function renderizarProdutos(lista){
 
           <h3>${produto.nome}</h3>
 
-          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128 avaliações)</small></div>
+          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128)</small></div>
 
           <p>${produto.descricao}</p>
 
           <p class="estoque">🔥 Restam apenas ${produto.estoque} unidades</p>
-          <p class="visualizando">👀 ${produto.visualizando} pessoas vendo agora</p>
+          <p class="visualizando">👀 ${produto.visualizando} vendo agora</p>
 
           <div class="preco">
             ${dinheiro(produto.preco)}
@@ -164,7 +170,7 @@ function renderizarProdutos(lista){
             </button>
 
             <button class="btn carrinho-btn" onclick="adicionarCarrinho(${produto.id})">
-              + Carrinho
+              🛒
             </button>
 
             <button class="btn principal" onclick="comprarProduto(${produto.id})">
@@ -215,6 +221,9 @@ function adicionarCarrinho(id){
 
   if(!carrinho.find(item => item.id === id)){
     carrinho.push(produto);
+    toast("Produto adicionado ao carrinho ✔");
+  }else{
+    toast("Esse produto já está no carrinho");
   }
 
   atualizarCarrinho();
@@ -269,10 +278,9 @@ function atualizarCarrinho(){
   }
 
   frete = 0;
-  document.getElementById("freteCarrinho").innerText = "Grátis";
-
   const total = subtotal + frete;
 
+  document.getElementById("freteCarrinho").innerText = "Grátis";
   document.getElementById("subtotal").innerText = dinheiro(subtotal);
   document.getElementById("totalCarrinho").innerText = dinheiro(total);
   document.getElementById("checkoutSubtotal").innerText = dinheiro(subtotal);
@@ -315,9 +323,9 @@ function fecharCheckout(){
 }
 
 function proximaEntrega(){
-  const nome = document.getElementById("nomeCliente").value;
-  const email = document.getElementById("emailCliente").value;
-  const whats = document.getElementById("whatsCliente").value;
+  const nome = document.getElementById("nomeCliente").value.trim();
+  const email = document.getElementById("emailCliente").value.trim();
+  const whats = document.getElementById("whatsCliente").value.trim();
 
   if(!nome || !email || !whats){
     alert("Preencha nome, e-mail e WhatsApp.");
@@ -340,9 +348,9 @@ function voltarDados(){
 }
 
 function calcularFrete(){
-  const cep = document.getElementById("cepCliente").value;
-  const cidade = document.getElementById("cidadeCliente").value;
-  const endereco = document.getElementById("enderecoCliente").value;
+  const cep = document.getElementById("cepCliente").value.trim();
+  const cidade = document.getElementById("cidadeCliente").value.trim();
+  const endereco = document.getElementById("enderecoCliente").value.trim();
 
   if(!cep || cep.length < 8 || !cidade || !endereco){
     alert("Preencha CEP, cidade e endereço completo.");
