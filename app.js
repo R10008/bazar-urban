@@ -133,7 +133,7 @@ function renderizarProdutos(lista){
   listaProdutos.innerHTML = "";
 
   lista.forEach(produto => {
-    const freteGratis = produto.preco >= 119.90 ? `<span class="selo-frete">🚚 Frete grátis</span>` : "";
+    const freteGratis = `<span class="selo-frete">🚚 Frete grátis</span>`;
 
     listaProdutos.innerHTML += `
       <div class="card">
@@ -268,19 +268,15 @@ function atualizarCarrinho(){
     area.innerHTML = `<p class="texto-menor">Seu carrinho está vazio.</p>`;
   }
 
-  if(subtotal >= 119.90){
-    frete = 0;
-    document.getElementById("freteCarrinho").innerText = "Grátis";
-  }else{
-    document.getElementById("freteCarrinho").innerText = "Calcule no checkout";
-  }
+  frete = 0;
+  document.getElementById("freteCarrinho").innerText = "Grátis";
 
   const total = subtotal + frete;
 
   document.getElementById("subtotal").innerText = dinheiro(subtotal);
   document.getElementById("totalCarrinho").innerText = dinheiro(total);
   document.getElementById("checkoutSubtotal").innerText = dinheiro(subtotal);
-  document.getElementById("checkoutFrete").innerText = subtotal >= 119.90 ? "Grátis" : dinheiro(frete);
+  document.getElementById("checkoutFrete").innerText = "Grátis";
   document.getElementById("checkoutTotal").innerText = dinheiro(total);
 }
 
@@ -353,17 +349,9 @@ function calcularFrete(){
     return;
   }
 
-  const subtotal = subtotalCarrinho();
-
-  if(subtotal >= 119.90){
-    frete = 0;
-    document.getElementById("resultadoFrete").innerText =
-      "🚚 Frete grátis aplicado acima de R$119,90";
-  }else{
-    frete = 0.00;
-    document.getElementById("resultadoFrete").innerText =
-      `Frete calculado: ${dinheiro(frete)}`;
-  }
+  frete = 0;
+  document.getElementById("resultadoFrete").innerText =
+    "🚚 Frete grátis aplicado ao seu pedido";
 
   atualizarCarrinho();
 
