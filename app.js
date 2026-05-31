@@ -9,7 +9,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"70x55cm",
-    estoque:2,
+    estoque:3,
     avaliacao:"★★★★★",
     visualizando:18,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
@@ -25,7 +25,7 @@ const produtos = [
     tamanho:"G",
     estado:"Excelente estado",
     medidas:"72x58cm",
-    estoque:2,
+    estoque:4,
     avaliacao:"★★★★★",
     visualizando:11,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
@@ -41,7 +41,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"74x56cm",
-    estoque:2,
+    estoque:5,
     avaliacao:"★★★★★",
     visualizando:15,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
@@ -57,7 +57,7 @@ const produtos = [
     tamanho:"M",
     estado:"Excelente estado",
     medidas:"105x44cm",
-    estoque:2,
+    estoque:6,
     avaliacao:"★★★★★",
     visualizando:9,
     descricao:"Peça selecionada manualmente para composições streetwear na categoria shorts.",
@@ -73,7 +73,7 @@ const produtos = [
     tamanho:"39/40",
     estado:"Novo",
     medidas:"39/40 BR",
-    estoque:2,
+    estoque:4,
     avaliacao:"★★★★★",
     visualizando:21,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
@@ -89,7 +89,7 @@ const produtos = [
     tamanho:"G",
     estado:"Novo",
     medidas:"72x58cm",
-    estoque:2,
+    estoque:5,
     avaliacao:"★★★★★",
     visualizando:14,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
@@ -105,11 +105,11 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"74x56cm",
-    estoque:2,
+    estoque:3,
     avaliacao:"★★★★★",
     visualizando:12,
     descricao:"Produto selecionado manualmente para o acervo Bazar Urban.",
-    imagem:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzj1jzgduexxa2"
+    imagem:"https://cdn.shopify.com/s/files/1/0293/9277/files/11-17-23Studio8_CB_AG_11-48-12_59_23015641_Black_20618_JB.jpg?v=1700608183&width=461&height=691&crop=center"
   },
 
   {
@@ -138,7 +138,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"Modelagem regular",
-    estoque:2,
+    estoque:4,
     avaliacao:"★★★★★",
     visualizando:16,
     descricao:"Camisa com visual urbano, ideal para looks streetwear premium.",
@@ -154,7 +154,7 @@ const produtos = [
     tamanho:"G",
     estado:"Novo",
     medidas:"Modelagem regular",
-    estoque:2,
+    estoque:5,
     avaliacao:"★★★★★",
     visualizando:13,
     descricao:"Camisa estilo street washed com pegada moderna e versátil.",
@@ -170,7 +170,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"Modelagem regular",
-    estoque:2,
+    estoque:3,
     avaliacao:"★★★★★",
     visualizando:22,
     descricao:"Camisa com estampa urbana para quem busca destaque no visual.",
@@ -203,7 +203,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"Modelagem casual",
-    estoque:2,
+    estoque:4,
     avaliacao:"★★★★★",
     visualizando:20,
     descricao:"Short urbano confortável, ideal para combinações streetwear.",
@@ -219,7 +219,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"Modelagem casual",
-    estoque:2,
+    estoque:3,
     avaliacao:"★★★★★",
     visualizando:18,
     descricao:"Short com visual urbano, confortável e fácil de combinar.",
@@ -251,7 +251,7 @@ const produtos = [
     tamanho:"M",
     estado:"Novo",
     medidas:"Modelagem casual",
-    estoque:2,
+    estoque:4,
     avaliacao:"★★★★★",
     visualizando:14,
     descricao:"Short utility com pegada urbana e visual moderno.",
@@ -272,6 +272,166 @@ const produtos = [
     visualizando:23,
     descricao:"Short premium para looks urbanos com conforto e presença.",
     imagem:"https://tse1.explicit.bing.net/th/id/OIP.g_u1ARnv10OS30q9QDttCgHaJ3?cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    id:18,
+    nome:"Conjunto Urban Prime I",
+    categoria:"conjunto",
+    preco:84.90,
+    checkout:"https://pay.risepay.com.br/Pay/a3613e18f55a4b00b7ec337f90861a3e",
+    status:"🔥 Conjunto novo",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Camisa + short",
+    estoque:4,
+    avaliacao:"★★★★★",
+    visualizando:24,
+    descricao:"Conjunto camisa e short com visual streetwear premium para o drop Bazar Urban.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2026/03/21/97/17740656909e3d92085425591bb4eba48e0e1b57bc.webp"
+  },
+  {
+    id:19,
+    nome:"Conjunto Street Prime II",
+    categoria:"conjunto",
+    preco:84.90,
+    checkout:"https://pay.risepay.com.br/Pay/a3613e18f55a4b00b7ec337f90861a3e",
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Camisa + short",
+    estoque:3,
+    avaliacao:"★★★★★",
+    visualizando:20,
+    descricao:"Conjunto selecionado para quem busca praticidade, conforto e estilo urbano.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2026/03/23/9e/17742629341d7adaf2299fa49e1b88aa2ebc3d2014.webp"
+  },
+  {
+    id:20,
+    nome:"Conjunto Urban Elite",
+    categoria:"conjunto",
+    preco:84.90,
+    checkout:"https://pay.risepay.com.br/Pay/a3613e18f55a4b00b7ec337f90861a3e",
+    status:"⚡ Últimas unidades",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Camisa + short",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:19,
+    descricao:"Conjunto com presença visual forte, ideal para looks casuais e streetwear.",
+    imagem:"https://img.ltwebstatic.com/images3_pi/2025/03/24/8c/1742796099a842ff837a21caf25e4399836cc388b3.webp"
+  },
+  {
+    id:21,
+    nome:"Conjunto Drop Limited",
+    categoria:"conjunto",
+    preco:84.90,
+    checkout:"https://pay.risepay.com.br/Pay/a3613e18f55a4b00b7ec337f90861a3e",
+    status:"🔥 Mais vendido",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Camisa + short",
+    estoque:3,
+    avaliacao:"★★★★★",
+    visualizando:27,
+    descricao:"Conjunto de drop limitado com estética premium e acabamento urbano.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2026/01/04/23/1767512085081755658af700563471afc0bbe091cf.webp"
+  },
+  {
+    id:22,
+    nome:"Conjunto Urban Legacy",
+    categoria:"conjunto",
+    preco:84.90,
+    checkout:"https://pay.risepay.com.br/Pay/a3613e18f55a4b00b7ec337f90861a3e",
+    status:"🔥 Drop novo",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Camisa + short",
+    estoque:4,
+    avaliacao:"★★★★★",
+    visualizando:22,
+    descricao:"Conjunto completo para quem quer montar look streetwear sem erro.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2025/05/09/9d/1746769547190c1e2e61d0c5c48d4e6e094a1f8c6d.webp"
+  },
+  {
+    id:23,
+    nome:"Short Urban Flex",
+    categoria:"calca",
+    preco:74.90,
+    checkout:"https://pay.risepay.com.br/Pay/71d30507f5c644c882825d5494120139",
+    status:"🔥 Drop novo",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Modelagem casual",
+    estoque:4,
+    avaliacao:"★★★★★",
+    visualizando:18,
+    descricao:"Short confortável com visual urbano, ideal para o dia a dia.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2025/12/15/8d/17657816355f26b7ff8af0d1e81fa90a2b5eb515cb.webp"
+  },
+  {
+    id:24,
+    nome:"Short Street Summer",
+    categoria:"calca",
+    preco:74.90,
+    checkout:"https://pay.risepay.com.br/Pay/71d30507f5c644c882825d5494120139",
+    status:"Peça única",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Modelagem casual",
+    estoque:3,
+    avaliacao:"★★★★★",
+    visualizando:16,
+    descricao:"Short leve e estiloso para combinações streetwear de verão.",
+    imagem:"https://img.ltwebstatic.com/images3_pi/2023/05/15/1684145958e9ffc5e25e01d76a9c6f639177714650.webp"
+  },
+  {
+    id:25,
+    nome:"Short Cargo Premium",
+    categoria:"calca",
+    preco:69.90,
+    checkout:"https://pay.risepay.com.br/Pay/f8817731cd2b4a49a21bde0ab2bd19b3",
+    status:"⚡ Últimas unidades",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Modelagem casual",
+    estoque:2,
+    avaliacao:"★★★★★",
+    visualizando:21,
+    descricao:"Short cargo com pegada urbana e visual premium.",
+    imagem:"https://img.ltwebstatic.com/v4/j/pi/2026/04/21/49/17767766381843d18de9a692ee72e31ba82a5e66b7.webp"
+  },
+  {
+    id:26,
+    nome:"Short Casual Essential",
+    categoria:"calca",
+    preco:49.90,
+    checkout:"https://pay.risepay.com.br/Pay/f5ee5cb8330a4f6096a34b505b3b8bb8",
+    status:"Preço especial",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Modelagem casual",
+    estoque:5,
+    avaliacao:"★★★★★",
+    visualizando:14,
+    descricao:"Short essencial com preço acessível e estilo urbano.",
+    imagem:"https://img.ltwebstatic.com/v4/p/spmp/2026/03/25/60/1774382143d0683033cca0d908482c2c9770218f97.webp"
+  },
+  {
+    id:27,
+    nome:"Short Urban Gold",
+    categoria:"calca",
+    preco:79.90,
+    checkout:"https://pay.risepay.com.br/Pay/0f68e584171c4638a8937c924b6180c9",
+    status:"🔥 Mais vendido",
+    tamanho:"M",
+    estado:"Novo",
+    medidas:"Modelagem casual",
+    estoque:3,
+    avaliacao:"★★★★★",
+    visualizando:25,
+    descricao:"Short com visual marcante para looks urbanos de destaque.",
+    imagem:"https://img.ltwebstatic.com/v4/p/spmp/2026/03/25/b7/17743858298f9decf76acf18182cbe70a1fc4f76ed.webp"
   }
 ];
 
@@ -316,7 +476,7 @@ function renderizarProdutos(lista){
 
           <h3>${produto.nome}</h3>
 
-          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128)</small></div>
+          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (114)</small></div>
 
           <p>${produto.descricao}</p>
 
@@ -351,7 +511,7 @@ renderizarProdutos(produtos);
 function renderizarMaisVendidos(){
   if(!listaMaisVendidos) return;
 
-  const idsDestaque = [1, 11, 17, 5];
+  const idsDestaque = [21, 11, 27, 5];
   const destaques = produtos.filter(produto => idsDestaque.includes(produto.id));
 
   listaMaisVendidos.innerHTML = "";
@@ -367,7 +527,7 @@ function renderizarMaisVendidos(){
         <div class="card-info">
           <span class="badge">${produto.status}</span>
           <h3>${produto.nome}</h3>
-          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (128)</small></div>
+          <div class="avaliacoes">${produto.avaliacao} <small>4.9/5 (114)</small></div>
           <p>${produto.descricao}</p>
           <p class="estoque">⚠️ Apenas ${produto.estoque} peças restantes</p>
           <p class="visualizando">👀 ${produto.visualizando} pessoas vendo agora</p>
@@ -387,12 +547,12 @@ function renderizarMaisVendidos(){
 renderizarMaisVendidos();
 
 const notificacoes = [
-  "🔥 kleber6 acabou de comprar Camisa Urban Print",
-  "🔥 João acabou de comprar Short Street Premium",
-  "🔥 felip acabou de comprar Camiseta Boxy Cream",
+  "🔥 kleber6 acabou de comprar Conjunto Drop Limited",
+  "🔥 João acabou de comprar Short Urban Gold",
+  "🔥 felip acabou de comprar Camisa Urban Print",
   "🔥 denislon34 acabou de comprar Tênis Urban Black",
   "🔥 lucivan acabou de comprar Moletom Essentials",
-  "🔥 Ana acabou de comprar Camisa Boxy Cream"
+  "🔥 Ana acabou de comprar Conjunto Urban Prime I"
 ];
 
 let notificacaoIndex = 0;
@@ -429,7 +589,7 @@ function abrirProduto(id){
   document.getElementById("produtoEstado").innerText = produto.estado;
   document.getElementById("produtoMedidas").innerText = produto.medidas;
   document.getElementById("produtoEstoque").innerText = `Restam apenas ${produto.estoque} unidades`;
-  document.getElementById("produtoAvaliacao").innerHTML = `${produto.avaliacao} <small>4.9/5 (128 avaliações)</small>`;
+  document.getElementById("produtoAvaliacao").innerHTML = `${produto.avaliacao} <small>4.9/5 (114 avaliações)</small>`;
   document.getElementById("produtoVisualizando").innerText = `👀 ${produto.visualizando} pessoas vendo agora`;
 
   document.getElementById("btnAdicionarProduto").onclick = () => {
@@ -437,7 +597,7 @@ function abrirProduto(id){
     fecharProduto();
   };
 
-  document.getElementById("btn⚡ Comprar agoraProduto").onclick = () => {
+  document.getElementById("btnComprarProduto").onclick = () => {
     comprarProduto(produto.id);
   };
 }

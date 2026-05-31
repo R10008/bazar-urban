@@ -1283,3 +1283,18 @@ footer{
     font-size:32px;
   }
 }
+
+
+/* CATEGORIA CONJUNTOS */
+
+.atalhos-categorias button:nth-child(2){
+  background:linear-gradient(135deg,var(--amarelo),#ffb800);
+  color:#111;
+  border-color:var(--amarelo);
+  box-shadow:0 12px 28px rgba(245,196,0,.14);
+}
+
+.filtro-campos select option{
+  background:#111;
+  color:#fff;
+}
